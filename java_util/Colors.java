@@ -28,18 +28,37 @@ public class Colors{
         colorMap.put("cyan",ANSI_CYAN);
         colorMap.put("white",ANSI_WHITE);
         try {
-            //Ansi Code as argument 1
+            //Ansi Color
+
             String ansiCode = args[0];
-            //String as argument 2
-            String printedString = args[1];
-            printColor(printedString,colorMap.get(ansiCode));
+            if (args[1].equals("title")){
+                printGen(colorMap.get(ansiCode));
+            }
+            else {
+                printColor("error",colorMap.get(ansiCode));
+            }
         } catch (ArrayIndexOutOfBoundsException e){
             System.out.println("An error occured while using color schema.");
             e.printStackTrace();
         }
     }
+    
+
+
     public static void printColor(String print, String color){
         System.out.println(color + print + ANSI_RESET);
+    }
+
+    public static void printGen(String color){
+        System.out.println("\n\n");
+        printColor("     _//                _//              _////                      ",color);
+        printColor("     _//                _//            _/    _//                    ",color);
+        printColor("     _//         _//    _//           _//           _//    _// _//  ",color);
+        printColor("     _//       _//  _// _// _//       _//         _/   _//  _//  _//",color);
+        printColor("     _//      _//   _// _//   _//     _//   _////_///// _// _//  _//",color);
+        printColor("     _//      _//   _// _//   _//      _//    _/ _/         _//  _//",color);
+        printColor("     _////////  _// _///_// _//         _/////     _////   _///  _//",color);
+        System.out.println("\n\n");
     }
 
 
