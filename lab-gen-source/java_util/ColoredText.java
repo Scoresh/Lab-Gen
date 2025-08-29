@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-public class Colors{
+public class ColoredText{
     //Basic colors
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";
@@ -29,13 +29,19 @@ public class Colors{
         colorMap.put("white",ANSI_WHITE);
         try {
             //Ansi Color
-
-            String ansiCode = args[0];
-            if (args[1].equals("title")){
-                printGen(colorMap.get(ansiCode));
+            String ansiCode = args[0].toLowerCase();
+            String parsedText = args[1];
+            String color = colorMap.get(ansiCode);
+            if (color == null){color="red";}
+            
+            if (parsedText.equalsIgnoreCase("default")){
+                
+                printGen(color);
             }
             else {
-                printColor("error",colorMap.get(ansiCode));
+                //runs parser to find escape characters and replace them
+                parsedText = insertEscapeCharacters(parsedText);
+                printColor(parsedText,color);
             }
         } catch (ArrayIndexOutOfBoundsException e){
             System.out.println("An error occured while using color schema.");
@@ -43,7 +49,17 @@ public class Colors{
         }
     }
     
-
+    public static String insertEscapeCharacters(String text){
+        return text
+        .replace("\\n", "\n")
+        .replace("\\t", "\t")
+        .replace("\\b", "\b")
+        .replace("\\r", "\r")
+        .replace("\\f", "\f")
+        .replace("\\\"", "\"")
+        .replace("\\'", "'")
+        .replace("\\\\", "\\");
+    }
 
     public static void printColor(String print, String color){
         System.out.println(color + print + ANSI_RESET);
@@ -51,13 +67,13 @@ public class Colors{
 
     public static void printGen(String color){
         System.out.println("\n\n");
-        printColor("     _//                _//              _////                      ",color);
-        printColor("     _//                _//            _/    _//                    ",color);
-        printColor("     _//         _//    _//           _//           _//    _// _//  ",color);
-        printColor("     _//       _//  _// _// _//       _//         _/   _//  _//  _//",color);
-        printColor("     _//      _//   _// _//   _//     _//   _////_///// _// _//  _//",color);
-        printColor("     _//      _//   _// _//   _//      _//    _/ _/         _//  _//",color);
-        printColor("     _////////  _// _///_// _//         _/////     _////   _///  _//",color);
+        printColor("     _//                _//                   _////                      ",color);
+        printColor("     _//                _//                 _/    _//                    ",color);
+        printColor("     _//         _//    _//                _//           _//    _// _//  ",color);
+        printColor("     _//       _//  _// _// _//            _//         _/   _//  _//  _//",color);
+        printColor("     _//      _//   _// _//   _//          _//   _////_///// _// _//  _//",color);
+        printColor("     _//      _//   _// _//   _//           _//    _/ _/         _//  _//",color);
+        printColor("     _////////  _// _///_// _//              _/////     _////   _///  _//",color);
         System.out.println("\n\n");
     }
 

@@ -8,5 +8,8 @@
 
 }
 
+!BARGRAPH{
+    Bar: (Label="",Color="",)
 
+}
 
