@@ -35,10 +35,10 @@
 
 
 %Modifiable Commands
-\newcommand{\titleDOC}{Laboratory Report}
-\newcommand{\authorDOC}{Scoresh Lol}
-\newcommand{\dateDOC}{\today}
-\newcommand{\classDOC}{Class}
+% \newcommand{\titleDOC}{Laboratory Report}
+% \newcommand{\authorDOC}{Scoresh Lol}
+% \newcommand{\dateDOC}{\today}
+% \newcommand{\classDOC}{Class}
 
 
 % Header/Footer
@@ -69,19 +69,26 @@
 %titlepage
 
 
+\begin{titlepage}
+  \titleDOC
+  \classDOC
+  \dateDOC
+  \authorDOC
+\end{titlepage}
 
 
 
 
 
 
-\renewcommand{\authorDOC}{scoresh}
 
-\renewcommand{\titleDOC}{Title Scoresh}
+\newcommand{\dateDOC}{six seven}
 
-\renewcommand{\dateDOC}{six seven}
+\newcommand{\classDOC}{honors scoreshing}
 
-\renewcommand{\classDOC}{honors scoreshing}
+\newcommand{\titleDOC}{Title Scoresh}
+
+\newcommand{\authorDOC}{scoresh}
 
 @!toc
 
@@ -93,15 +100,6 @@ Blah blah blah this is pretty neat.
 @!PIE\{ Bar1: 50 Bar2: 30 Bar3: 20 \}
 
 @!BARGRAPH\{ \}
-
-\begin{titlepage}
-  \titleDOC
-  \classDOC
-  \dateDOC
-  \authorDOC
-
-
-\end{titlepage}
 
 
 

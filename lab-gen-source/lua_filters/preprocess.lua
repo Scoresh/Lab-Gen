@@ -30,8 +30,11 @@ function Pandoc(doc)
         end
 
     end
-    
+    -- insert title content now that the commands are defined. CHANGE LATER
+    table.insert(returnTable,pandoc.RawInline("latex","\\input{basetemplate.tex}"))
+
     doc.blocks = pandoc.List(returnTable) .. doc.blocks
+
     return doc
 end
 
