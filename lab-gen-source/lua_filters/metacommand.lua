@@ -5,7 +5,6 @@ local commandutil = require("lua_filters.commandutil")
 
 function Pandoc(doc)
     local el = doc.meta
-    -- doesn't see if it is empty; simply detects if is nil
     if (el == nil) then return doc end
     
     returnTable = {}
@@ -31,12 +30,15 @@ function Pandoc(doc)
 
     end
     
-    doc.blocks = pandoc.List(returnTable) .. doc.blocks
-    return doc
+    -- Apparantly it is string indexxed: 
+    for _,i in ipairs(returnTable) do
+        print(i)
+    end
+    return returnTable
 end
 
 
 
 return {
-    Pandoc=Pandoc
+    Meta=Meta
 }

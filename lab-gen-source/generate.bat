@@ -30,7 +30,7 @@ EXIT /B %ERRORLEVEL%
 
 
   call :generatePDF
-  ::call :generateTEX
+  call :generateTEX
 EXIT /B 0
 
 ::-------------------------:
@@ -62,8 +62,7 @@ EXIT /B 0
   --template=latex_templates/basetemplate.tex^
   --from markdown-smart-smart ../text.md -o ../text.pdf^
   --pdf-engine=lualatex^
-  --lua-filter=lua_filters/preprocess.lua^
-  --lua-filter=lua_filters/command.lua
+  --lua-filter=lua_filters/preprocess.lua
   
 EXIT /B 0
 
@@ -71,10 +70,9 @@ EXIT /B 0
   echo Generating LaTeX...
   pandoc ^
   --template=latex_templates/basetemplate.tex^
-  --from markdown ../text.md -o ../text.tex^
+  --from markdown-smart-smart ../text.md -o ../text.tex^
   --pdf-engine=lualatex^
-  --lua-filter=lua_filters/preprocess.lua^
-  --lua-filter=lua_filters/command.lua
+  --lua-filter=lua_filters/preprocess.lua
 EXIT /B 0
 
 ::-------------------------:

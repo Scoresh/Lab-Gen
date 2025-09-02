@@ -1,7 +1,7 @@
 
 local commandutil = require("lua_filters.commandutil")
 
-function Para(el)
+function RawInline(el)
     local lookFor = {
         ["@!author="] = "RENEWTYPE:authorDOC",
         ["@!title="] = "RENEWTYPE:titleDOC",
@@ -32,5 +32,5 @@ end
 
 return {
     Pandoc=Pandoc,
-    Para=Para,
+    RawInline=RawInline,
 }

@@ -1,3 +1,11 @@
+---
+author: scoresh
+email: scoresh.lol@gmail.com
+class: honors scoreshing 
+date: six seven
+title: Title Scoresh
+---
+
 @!toc
 
 @!author="Scoresh Hah"

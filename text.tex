@@ -37,6 +37,9 @@
 %Modifiable Commands
 \newcommand{\titleDOC}{Laboratory Report}
 \newcommand{\authorDOC}{Scoresh Lol}
+\newcommand{\dateDOC}{\today}
+\newcommand{\classDOC}{Class}
+
 
 % Header/Footer
 \pagestyle{fancy}
@@ -44,8 +47,7 @@
 \rhead{\thepage}
 \lhead{\leftmark}
 
-% Metadata
-  \date{\today}
+
 
 
 
@@ -64,15 +66,43 @@
 %
 \begin{document}
 
+%titlepage
 
 
 
-\textbf{This is some raw LaTeX Content}
+
+
+
+
+
+\renewcommand{\classDOC}{honors scoreshing}
+
+\renewcommand{\authorDOC}{scoresh}
+
+\renewcommand{\titleDOC}{Title Scoresh}
+
+\renewcommand{\dateDOC}{six seven}
+
+@!toc
+
+@!author="Scoresh Hah" @!title="Title Lol" @!class="Class lol"
+@!date="six seven"
 
 Blah blah blah this is pretty neat.
 
 @!PIE\{ Bar1: 50 Bar2: 30 Bar3: 20 \}
 
 @!BARGRAPH\{ \}
+
+\begin{titlepage}
+  \titleDOC
+  \classDOC
+  \dateDOC
+  \authorDOC
+
+
+\end{titlepage}
+
+
 
 \end{document}

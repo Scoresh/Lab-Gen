@@ -2,23 +2,22 @@
 
 
 
-function findCommand(element,commandName,commandAction)
+function findCommand(metaString,commandAction)
     print("Custom Extract Command Found! Extracting...")
-    local command = pandoc.utils.stringify(element)
-    if (commandAction:find("COMMANDTYPE:")) then
-        print("Command Type Found.")
-        return pandoc.RawInline("latex",string.sub(commandAction,#"COMMANDTYPE:"+1))
+    if commandAction:find("RENEWTYPE:") then
+        local firstIndex,lastIndex = string.find(commandAction,"RENEWTYPE:")
+        commandAction = string.sub(commandAction,lastIndex+1)
+        print("Command variable editing: " .. commandAction)
+        print("\\renewcommand{\\" .. commandAction .. "}{" .. metaString .. "}")
+        return pandoc.RawInline("latex","\\renewcommand{\\" .. commandAction .. "}{" .. metaString .. "}")
     end
-
-
-    sIndex,eIndex = string.find(command,commandName)
-    -- Shift End Index by 1
-    command = string.sub(command,eIndex+1)
-    print("VALUE OF COMMAND: " .. command)
-
-
-
-    print("No command was found: " .. command)
+    if (commandAction:find("COMMANDTYPE:")) then
+        local firstIndex,lastIndex = string.find(commandAction,"COMMANDTYPE:")
+        commandAction = string.sub(commandAction,lastIndex+1)
+        return pandoc.RawInline("latex",commandAction)
+    end
+    print("An error occured while detecting metaString " .. metaString)
+    return pandoc.RawInline("latex","")
 end
 
 
