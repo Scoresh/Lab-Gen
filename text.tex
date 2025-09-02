@@ -37,9 +37,6 @@
 %Modifiable Commands
 \newcommand{\titleDOC}{Laboratory Report}
 \newcommand{\authorDOC}{Scoresh Lol}
-\newcommand{\dateDOC}{\today}
-\newcommand{\classDOC}{Class}
-
 
 % Header/Footer
 \pagestyle{fancy}
@@ -47,7 +44,8 @@
 \rhead{\thepage}
 \lhead{\leftmark}
 
-
+% Metadata
+  \date{\today}
 
 
 
@@ -66,29 +64,15 @@
 %
 \begin{document}
 
-%titlepage
-\begin{titlepage}
-  \titleDOC
-  \classDOC
-  \dateDOC
-  \authorDOC
-
-
-\end{titlepage}
 
 
 
+\textbf{This is some raw LaTeX Content}
 
+Blah blah blah this is pretty neat.
 
-$if(toc)$
-  {
-  \hypersetup{linkcolor=black}
-  \tableofcontents
-  \newpage
-  }
-$endif$
+@!PIE\{ Bar1: 50 Bar2: 30 Bar3: 20 \}
 
-
-$body$
+@!BARGRAPH\{ \}
 
 \end{document}

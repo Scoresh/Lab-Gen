@@ -30,6 +30,7 @@ EXIT /B %ERRORLEVEL%
 
 
   call :generatePDF
+  ::call :generateTEX
 EXIT /B 0
 
 ::-------------------------:
@@ -57,12 +58,24 @@ EXIT /B 0
 ::-------------------------:
 :generatePDF
   echo Generating PDF...
-  pandoc ../text.md -o ../text.pdf^
+  pandoc ^
+  --template=latex_templates/basetemplate.tex^
+  --from markdown-smart-smart ../text.md -o ../text.pdf^
   --pdf-engine=lualatex^
-  --template=latex_templates/basetemplate.tex
+  --lua-filter=lua_filters/preprocess.lua^
+  --lua-filter=lua_filters/command.lua
+  
 EXIT /B 0
 
-
+:generateTEX
+  echo Generating LaTeX...
+  pandoc ^
+  --template=latex_templates/basetemplate.tex^
+  --from markdown ../text.md -o ../text.tex^
+  --pdf-engine=lualatex^
+  --lua-filter=lua_filters/preprocess.lua^
+  --lua-filter=lua_filters/command.lua
+EXIT /B 0
 
 ::-------------------------:
 :: Parses Flags; 

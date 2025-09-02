@@ -1,15 +1,20 @@
+@!toc
+
+@!author="Scoresh Hah"
+@!title="Title Lol"
+@!class="Class lol"
+@!date="six seven"
 
 
 
-!PIE{
+Blah blah blah this is pretty neat.
+
+@!PIE{
     Bar1: 50
     Bar2: 30
     Bar3: 20
-
 }
 
-!BARGRAPH{
-    Bar: (Label="",Color="",)
-
+@!BARGRAPH{
 }
 
