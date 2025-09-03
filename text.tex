@@ -1,7 +1,15 @@
-\documentclass{article}
+\documentclass[letterpaper]{article}
 \PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
 \PassOptionsToPackage{hyphens}{url}
 \usepackage{graphicx} % Required for inserting images
+
+\graphicspath{ {../images/} }
+\usepackage[margin=1in]{geometry}
+\usepackage{tikz}
+\usepackage[dvipsnames]{xcolor}
+\usetikzlibrary{calc}
+
+
 
 
 \usepackage[utf8]{inputenc}
@@ -10,12 +18,7 @@
 \usepackage[english]{babel}
 
 
-% Page layout
-\usepackage{geometry}
-\geometry{margin=1in}
-
 % Useful packages
-\usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{amsmath, amssymb}
 \usepackage{fancyhdr}
@@ -77,11 +80,11 @@
 
 \newcommand{\dateDOC}{six seven}
 
+\newcommand{\titleDOC}{Title Scoresh}
+
 \newcommand{\authorDOC}{scoresh}
 
 \newcommand{\classDOC}{honors scoreshing}
-
-\newcommand{\titleDOC}{Title Scoresh}
 
 \input{latex_templates/basetitle.tex}
 
