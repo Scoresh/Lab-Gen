@@ -37,12 +37,13 @@
 
 
 
-%Modifiable Commands
-% \newcommand{\titleDOC}{Laboratory Report}
-% \newcommand{\authorDOC}{Scoresh Lol}
-% \newcommand{\dateDOC}{\today}
-% \newcommand{\classDOC}{Class}
-
+%Modifiable Commands; defaults set to none
+\newcommand{\titleDOC}{}
+\newcommand{\authorDOC}{Daniel Sabalakov}
+\newcommand{\dateDOC}{\today}
+\newcommand{\classDOC}{}
+% DEFAULT QUOTE IS BY ISSAC NEWTON. IF YOU DON'T WANT IT, DO: quote: @none
+\newcommand{\quoteDOC}{``\textit{Truth is ever to be found in the simplicity, and not in the multiplicity and confusion of things}'' - Issac Newton}
 
 % Header/Footer
 \pagestyle{fancy}
@@ -78,13 +79,13 @@
 
 
 
-\newcommand{\dateDOC}{six seven}
+\renewcommand{\titleDOC}{Title Scoresh}
 
-\newcommand{\titleDOC}{Title Scoresh}
+\renewcommand{\authorDOC}{scoresh}
 
-\newcommand{\authorDOC}{scoresh}
+\renewcommand{\dateDOC}{six seven}
 
-\newcommand{\classDOC}{honors scoreshing}
+\renewcommand{\classDOC}{honors scoreshing}
 
 \input{latex_templates/basetitle.tex}
 

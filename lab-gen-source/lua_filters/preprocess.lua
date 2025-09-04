@@ -16,6 +16,7 @@ function Pandoc(doc)
         ["title"] = "RENEWTYPE:titleDOC",
         ["date"] = "RENEWTYPE:dateDOC",
         ["class"] = "RENEWTYPE:classDOC",
+        ["quote"] = "RENEWTYPE:quoteDOC",
     }   
     -- loop through meta 
     print(pandoc.utils.stringify(el))

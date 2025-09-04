@@ -8,8 +8,9 @@ function findCommand(metaString,commandAction)
         local firstIndex,lastIndex = string.find(commandAction,"RENEWTYPE:")
         commandAction = string.sub(commandAction,lastIndex+1)
         print("Command variable editing: " .. commandAction)
-        print("\\newcommand{\\" .. commandAction .. "}{" .. metaString .. "}")
-        return pandoc.RawInline("latex","\\newcommand{\\" .. commandAction .. "}{" .. metaString .. "}")
+        if (metaString == "none") then return pandoc.RawInline("latex","\\renewcommand{\\" .. commandAction .. "}{}") end
+        print("\\renewcommand{\\" .. commandAction .. "}{" .. metaString .. "}")
+        return pandoc.RawInline("latex","\\renewcommand{\\" .. commandAction .. "}{" .. metaString .. "}")
     end
     if (commandAction:find("COMMANDTYPE:")) then
         local firstIndex,lastIndex = string.find(commandAction,"COMMANDTYPE:")

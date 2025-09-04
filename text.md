@@ -4,6 +4,7 @@ email: scoresh.lol@gmail.com
 class: honors scoreshing 
 date: six seven
 title: Title Scoresh
+# quote: \``\\textit{Truth is ever to be found in the simplicity, and not in the multiplicity and confusion of things}'' - Issac Newton
 ---
 
 @!toc
