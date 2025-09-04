@@ -1,4 +1,6 @@
 % This is a template title page that I will be using for my projects
+% Credit where credit is due: I began with this template
+% https://www.reddit.com/r/LaTeX/comments/faij1n/my_first_cover_page_done_in_latex_is_it/
 \begin{titlepage}
 
 \pagestyle{empty}
@@ -8,76 +10,80 @@
 \fill[black!2] (current page.south west) rectangle (current page.north east);
 
 
+% SCOPE 1: BLUE
+\begin{scope}[transform canvas ={rotate around ={45:($(current page.north west)+(18,-10)$)}},]
 
-%SCOPE 1: DANDELION
+\shade[rounded corners=22pt, left color=RoyalBlue,right color=RoyalBlue] ($(current page.north west)+(16.7,-10)$) rectangle ++(20,1.5);
+
+\end{scope}
+% SCOPE 1A: BLUE
+\begin{scope}[transform canvas ={rotate around ={135:($(current page.north west)+(18,-10)$)}},]
+
+\shade[rounded corners=22pt, left color=RoyalBlue,right color=RoyalBlue] ($(current page.north west)+(18,-10)$) rectangle ++(20,1.5);
+
+\end{scope}
+
+%SCOPE 1B: BLUE
 \begin{scope}[transform canvas ={rotate around ={45:($(current page.north west)+(-.5,-6)$)}}]
 
-\shade[rounded corners=18pt, left color=Dandelion, right color=Dandelion!40] ($(current page.north west)+(-.5,-6)$) rectangle ++(9,1.5);
+\shade[rounded corners=18pt, left color=RoyalBlue, right color=RoyalBlue] ($(current page.north west)+(-.5,-6)$) rectangle ++(9,1.5);
 
 \end{scope}
 
-%SCOPE 2: LIGHT GRAY
+
+
+% SCOPE 2: ORANGE
+\begin{scope}[transform canvas ={rotate around ={45:($(current page.north west)+(20,-10)$)}},]
+
+\shade[rounded corners=22pt, left color=Dandelion,right color=Dandelion] ($(current page.north west)+(19.7,-6)$) rectangle ++(13,1.5);
+
+\end{scope}
+% SCOPE 2A: ORANGE
+\begin{scope}[transform canvas ={rotate around ={135:($(current page.north west)+(20,-10)$)}},]
+
+\shade[rounded corners=22pt, left color=Dandelion,right color=Dandelion] ($(current page.north west)+(24,-11)$) rectangle ++(16,1.5);
+
+\end{scope}
+
+%SCOPE 2B: ORANGE
 \begin{scope}[transform canvas ={rotate around ={45:($(current page.north west)+(.5,-10)$)}}]
 
-\shade[rounded corners=18pt, left color=lightgray,right color=lightgray!60] ($(current page.north west)+(0.5,-10)$) rectangle ++(15,1.5);
+\shade[rounded corners=22pt, left color=Dandelion,right color=Dandelion] ($(current page.north west)+(-1.5,-10)$) rectangle ++(18,1.5);
 
 \end{scope}
 
-%SCOPE 3
-\begin{scope}[transform canvas ={rotate around ={45:($(current page.north west)+(0.5,-10)$)}}]
-
-\shade[rounded corners=8pt, left color=lightgray] ($(current page.north west)+(1.5,-9.55)$) rectangle ++(7,.6);
-
-\end{scope}
-%SCOPE 4
-\begin{scope}[transform canvas ={rotate around ={45:($(current page.north)+(-1.5,-3)$)}}]
-
-\shade[rounded corners=12pt, left color=orange!80, right color=orange!60] ($(current page.north)+(-1.5,-3)$) rectangle ++(9,0.8);
-
-\end{scope}
-%SCOPE 5
+%SCOPE 3: EMERALD
 \begin{scope}[transform canvas ={rotate around ={45:($(current page.north)+(-3,-8)$)}}]
 
-\shade[rounded corners=28pt, left color=red!80, right color=red!80] ($(current page.north)+(-3,-8)$) rectangle ++(15,1.8);
+\shade[rounded corners=18pt, left color=Emerald, right color=Emerald] ($(current page.north)+(-3,-8)$) rectangle ++(16,1.5);
 
 \end{scope}
-% SCOPE 6
-\begin{scope}[transform canvas ={rotate around ={45:($(current page.north west)+(4,-15.5)$)}}]
 
-\shade[rounded corners=25pt, left color=orange, right color=Dandelion] ($(current page.north west)+(8,-15.5)$) rectangle ++(30,1.8);
+%SCOPE 3A: EMERALD
+\begin{scope}[transform canvas ={rotate around ={135:($(current page.north)+(-3,-8)$)}}]
 
-\end{scope}
-% SCOPE 7
-\begin{scope}[transform canvas ={rotate around ={45:($(current page.north west)+(13,-10)$)}},]
-
-\shade[rounded corners=22pt, left color=RoyalBlue,right color=Emerald] ($(current page.north west)+(13,-10)$) rectangle ++(15,1.5);
+\shade[rounded corners=22pt, left color=Emerald, right color=Emerald] ($(current page.north)+(-3,-9.2)$) rectangle ++(14,1.5);
 
 \end{scope}
-% SCOPE 8
-\begin{scope}[transform canvas ={rotate around ={45:($(current page.north west)+(18,-8)$)}},]
 
-\shade[rounded corners=8pt, left color=lightgray] ($(current page.north west)+(18,-8)$) rectangle ++(15,0.6);
+%SCOPE 3B: EMERALD
+\begin{scope}[transform canvas ={rotate around ={135:($(current page.north west)+(20,-10)$)}},]
 
-\end{scope}
-%SCOPE 9
-\begin{scope}[transform canvas ={rotate around ={45:($(current page.north west)+(19,-5.65)$)}},]
-
-\shade[rounded corners=12pt, left color=lightgray] ($(current page.north west)+(19,-5.65)$) rectangle ++(15,0.8);
+\shade[rounded corners=22pt, left color=Emerald,right color=Emerald] ($(current page.north west)+(21,-15)$) rectangle ++(18,1.5);
 
 \end{scope}
-% SCOPE 10
-\begin{scope}[transform canvas ={rotate around ={45:($(current page.north west)+(20,-9)$)}}]
 
-\shade[rounded corners=20pt, left color=OrangeRed, right color=red!80] ($(current page.north west)+(20,-9)$) rectangle ++(14,1.2);
+% END GRAPHICS
 
-\end{scope}
+
+
 
 % TITLE OF DOCUMENT
-\node at ($(current page.center)+(0,0)$) {{\fontsize{60}{72} \selectfont \titleDOC}};
+\node at ($(current page.center)+(0,3)$) {{\fontsize{60}{72} \selectfont \titleDOC}};
 % AUTHOR, CLASS, DATE
-\node[text width=8in,align=center] at ($(current page.center)+(0,-2.5)$) {{\fontsize{16}{19.2} \selectfont \textcolor{orange}{ \bf \authorDOC}} \\[6pt] \classDOC\\[6pt] \dateDOC};
+\node[text width=8in,align=center] at ($(current page.center)+(0,1)$) {{\fontsize{16}{19.2} \selectfont \textcolor{orange}{ \bf \authorDOC}} \\[6pt] \classDOC\\[6pt] \dateDOC};
 % QUOTE
-\node[text width=8in,align=center] at ($(current page.center)+(0,-6.5)$) { \fontsize{16}{19.2} \selectfont \quoteDOC};
+\node[text width=8in,align=center] at ($(current page.center)+(0,-3)$) { \fontsize{16}{19.2} \selectfont \quoteDOC};
 
 
 % \node[text width=1.1in,align=center] at ($(current page.center)+(8.5,-13)$) {{
