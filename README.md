@@ -26,6 +26,7 @@ The following fields are supported:
 + date
 + class
 + title
++ quote
 ## Commands
 ### Brief Explanation
 Commands can be signified inline via the following syntax:
@@ -33,7 +34,6 @@ Commands can be signified inline via the following syntax:
 ### Supported Commands
 The following commands are supported:
 + @!toc ==> Macro command to generate a table of contents
-+ @!titlepage ==> Macro command to generate the title page.
 <!-- + @!graph ==> Macro command to generate graphs !TODO: IMPLEMENT -->
 ### Supported Graphs
 Graphs can also be generated using these macro commands. 
