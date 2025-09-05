@@ -24,13 +24,28 @@ end
 
 local function findCommandBLOCK(value)
     local lookFor = {
-        ["author"] = "RENEWTYPE:authorDOC",
-        ["title"] = "RENEWTYPE:titleDOC",
-        ["date"] = "RENEWTYPE:dateDOC",
-        ["class"] = "RENEWTYPE:classDOC",
-        ["quote"] = "RENEWTYPE:quoteDOC"
-    }    
-    return pandoc.RawBlock("latex","\\newpage")
+        ["="] = "RENEWTYPE",
+        ["{"] = "LISTTYPE",
+        ["raw"] = "RAWTYPE",
+        ["toc"] = "\\tableofcontents",
+    }
+    for key,valued in pairs(lookFor) do
+        if (value:find(key)) then
+            if (valued:find("RENEWTYPE")) then
+                fI,eI = value:find("=")
+                return pandoc.RawBlock("latex","\\renewcommand{\\" .. value:sub(1,eI-1) .. "}{" .. value:sub(eI+1) .. "}")
+            elseif (valued:find("LISTTYPE")) then
+                return pandoc.RawBlock("latex","\\newpage")
+            elseif (valued:find("RAWTYPE")) then
+                --begin from raw
+                return pandoc.RawBlock("latex",value:sub(3))
+            else 
+                return pandoc.RawBlock("latex",valued)
+            end
+        end
+    end
+    
+
 end
 
 
