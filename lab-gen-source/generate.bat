@@ -62,7 +62,8 @@ EXIT /B 0
   --template=latex_templates/basetemplate.tex^
   --from markdown-smart-smart ../text.md -o ../text.pdf^
   --pdf-engine=lualatex^
-  --lua-filter=lua_filters/preprocess.lua
+  --lua-filter=lua_filters/preprocess.lua^
+  --lua-filter=lua_filters/process.lua
   
 EXIT /B 0
 
@@ -72,7 +73,8 @@ EXIT /B 0
   --template=latex_templates/basetemplate.tex^
   --from markdown-smart-smart ../text.md -o ../text.tex^
   --pdf-engine=lualatex^
-  --lua-filter=lua_filters/preprocess.lua
+  --lua-filter=lua_filters/preprocess.lua^
+  --lua-filter=lua_filters/process.lua
 EXIT /B 0
 
 ::-------------------------:
