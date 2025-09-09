@@ -23,35 +23,36 @@ end
 
 
 local function findCommandBLOCK(value)
+    print(value)
     local lookFor = {
-        ["="] = "RENEWTYPE",
-        ["{"] = "LISTTYPE",
         ["raw"] = "RAWTYPE",
+        ["= "] = "RENEWTYPE",
+        ["{"] = "LISTTYPE",
         ["toc"] = "\\tableofcontents",
     }
     for key,valued in pairs(lookFor) do
-        if (value:find(key)) then
-            if (valued:find("RENEWTYPE")) then
+        if (value:find(key) ~= nil) then
+            if (valued:find("RAWTYPE") and value:find(key) == 1) then
+                --begin from raw
+                return pandoc.RawBlock("latex",value:sub(4))
+            elseif (valued:find("RENEWTYPE")) then
                 fI,eI = value:find("=")
                 return pandoc.RawBlock("latex","\\renewcommand{\\" .. value:sub(1,eI-1) .. "}{" .. value:sub(eI+1) .. "}")
             elseif (valued:find("LISTTYPE")) then
                 return pandoc.RawBlock("latex","\\newpage")
-            elseif (valued:find("RAWTYPE")) then
-                --begin from raw
-                return pandoc.RawBlock("latex",value:sub(3))
-            else 
+            else
                 return pandoc.RawBlock("latex",valued)
             end
         end
     end
-    
+    return pandoc.RawBlock("latex",value)
 
 end
 
 
 function insertCommands(pandocCommandTable,inputTable) 
     for key,value in pairs(inputTable) do
-        table.insert(pandocCommandTable,findCommandBLOCK(value))
+        table.insert(pandocCommandTable, findCommandBLOCK(value) )
     end
 end
 

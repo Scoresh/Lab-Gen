@@ -6,16 +6,18 @@ title: Example Title
 # quote: \``\\textit{Truth is ever to be found in the simplicity, and not in the multiplicity and confusion of things}'' - Issac Newton
 ---
 
+@!toc!@
+
+@!raw \\textbf{This is some bolded text!} !@
 This is some example text.
 
 
 
-@!toc!@
 
-@!author="Scoresh Hah"!@
-@!title="Title Lol"!@
-@!class="Class lol"!@
-@!date="six seven"!@
+@!author=Scoresh Hah!@
+@!title=Title Lol!@
+@!class=Class lol!@
+@!date=six seven!@
 
 
 
