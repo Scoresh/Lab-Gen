@@ -15,8 +15,6 @@ def main(window):
     #mainloop
     window.mainloop()
 
-def cButton(window,args):    
-    
 
 mainWindow = tk.Tk()
 main(mainWindow)
