@@ -1,0 +1,61 @@
+---
+author: Daniel Sabalakov
+email: danielsabalakov@gmail.com
+class: DE Intro to Statistics I
+title: Ch. 12 Analysis
+# quote: \``\\textit{Truth is ever to be found in the simplicity, and not in the multiplicity and confusion of things}'' - Issac Newton
+---
+
+
+### 1. The authors use an analogy about the relationship between a sample and a population. They introduce this analogy at the beginning of the chapter and use it throughout the chapter.  Identify the analogy. 
+
+Vegetable soup; To decide whether or not it meets my standards, you can just try a spoonful or two. This should be representative of the full pot.
+
+### 2.  “Bias is the bane of sampling-the one thing above all to avoid.”  BVD, p. 271. Define bias from a sampling perspective in one sentence.
+Bias is introduced by allowing your own ideas to influence sampling; conclusions based on bias are unsalvageable and flawed.
+
+
+### 3. “To avoid bias and make the sample as representative as possible, you might be tempted to handpick the individuals included in the sample with care and precision.  The best strategy is to do something quite different.”  BVD, p. 272.
+Complete the sentence:  We should select individuals for the sample… @!raw \\textbf{ randomly. } !@
+
+
+### 4. The authors wrote about five legitimate sampling methods. Identify as many as you can.
+
+* Truly random (simple)
+    + Selecting people truly randomly
+* Stratified
+    + Identifying homogenous groups and then sampling from them 
+* Cluster
+    + Splitting population into similar parts and them sampling them
+* Systematic
+    + Sampling population using systematic methods
+
+### 5.  Choose one of the sampling methods from your answer to question four and describe it.
+Cluster: When splitting a population into multiple easy-to-manage parts and then sampling a few random points from each cluster.
+
+### 6. If samples are drawn at random, would we expect them to generally differ one from another?  Briefly explain.
+Yes; truly random samples will differ from each other because each combination has the same chance of being drawn.
+
+### 7. “Bad sample designs yield worthless data.  Many of the most convenient forms of sampling can be seriously biased.  And there is no way to correct for the bias from a bad sample.”  BVD, p. 282.  The authors wrote about four major forms of bias.  Identify as many as you can.
+* Volunteer Sample Bias
+* Convenience sampling
+* Bad Sample Frame
+* Undercoverage
+
+
+### 8. Choose one of the forms of bias and write about it.
+Undercoverage is where some portion of the population is not sampled at all. This can arise from any reason. 
+
+
+
+<!-- Blah blah blah this is pretty neat.
+
+@!PIE{
+    Bar1: 50
+    Bar2: 30
+    Bar3: 20
+}!@
+
+@!BARGRAPH{
+}!@ -->
+

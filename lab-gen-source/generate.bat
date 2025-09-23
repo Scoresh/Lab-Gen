@@ -15,6 +15,7 @@ EXIT /B %ERRORLEVEL%
   SET "color="
   SET "text="
   SET "template="
+  SET "file="
   call :parseflags %*
 
   ::important: once flags are parsed, note that we must check that flags exist so we don't have any goofy java error codes. 
@@ -25,12 +26,15 @@ EXIT /B %ERRORLEVEL%
   if "!text!" == "" (
     @REM call :warning The -text flag is missing. Defaulting to DEFAULT
     SET "text=default")
-
+  if "!file!" == "" (
+    @REM call :warning The -file flag is missing. Defaulting to text
+    SET "file=text"
+  )
   call :generateTitle "!color!" "!text!"
 
 
-  call :generatePDF
-  call :generateTEX
+  call :generatePDF "!file!"
+  call :generateTEX "!file!"
 EXIT /B 0
 
 ::-------------------------:
@@ -60,7 +64,7 @@ EXIT /B 0
   echo Generating PDF...
   pandoc ^
   --template=latex_templates/basetemplate.tex^
-  --from markdown-smart-smart ../text.md -o ../text.pdf^
+  --from markdown-smart-smart ../projects/projects_markdown/%1.md -o ../projects/projects_rendered/%1.pdf^
   --pdf-engine=lualatex^
   --lua-filter=lua_filters/preprocess.lua^
   --lua-filter=lua_filters/process.lua
@@ -71,7 +75,7 @@ EXIT /B 0
   echo Generating LaTeX...
   pandoc ^
   --template=latex_templates/basetemplate.tex^
-  --from markdown-smart-smart ../text.md -o ../text.tex^
+  --from markdown-smart-smart ../projects/projects_markdown/%1.md -o ../projects/projects_debug/%1.tex^
   --pdf-engine=lualatex^
   --lua-filter=lua_filters/preprocess.lua^
   --lua-filter=lua_filters/process.lua
@@ -89,7 +93,6 @@ IF /I "%~1"=="-h" (
     call :help
     GOTO :endOfParseFlagsFunc
 )
-
 
 
 
@@ -119,6 +122,23 @@ IF /I "%~1"=="-color" (
         EXIT /B 1
     )
 )
+
+:: Check for -file VALUE
+IF /I "%~1"=="-file" (
+    IF NOT "%~2"=="" (
+        SET "file=%~2"
+        ECHO File set to: !file!
+        SHIFT
+        SHIFT
+        GOTO :parseflags
+    ) ELSE (
+        call:warning Error: -file requires a value. Defaulting to ^file TEXT
+        SET "color=text"
+        EXIT /B 1
+    )
+)
+
+
 
 :: Check for -text VALUE
 IF /I "%~1"=="-text" (

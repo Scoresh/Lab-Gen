@@ -45,6 +45,7 @@ The following flags are supported (and case insentitive)
 + -color ==> sets color of flag
 + -cj ==> compile java code
 + -text ==> leave blank for Lab-Gen by default; any other text will be displayed
++ -file ==> leave blank for text.md by default; any other file will be specified to render an image properly.
 ## Generation (Command Line)
 Since Lab-Gen uses Pandoc as its parser, we can run a Pandoc process to directly compile the markdown.
 ### Command Line
