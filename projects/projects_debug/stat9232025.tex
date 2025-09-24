@@ -30,6 +30,11 @@
 \usepackage{tocloft}
 \usepackage{titlesec}
 
+
+\usepackage{unicode-math}
+
+
+
 % Code highlighting (Pandoc uses listings or minted, but listings is safer without shell escape)
 \usepackage{listings}
 \lstset{
@@ -83,120 +88,40 @@
 
 
 
-\renewcommand{\classDOC}{DE Intro to Statistics I}
+\renewcommand{\authorDOC}{Daniel Sabalakov, Anthony Smith}
 
 \renewcommand{\titleDOC}{Down the River}
 
-\renewcommand{\authorDOC}{Daniel Sabalakov, Anthony Smith}
+\renewcommand{\classDOC}{DE Intro to Statistics I}
 
 \input{latex_templates/basetitle.tex}
 
+Instructions: Use the graphical displays and statistical summaries to answer the questions. Recall, the farmer is going to use the results of a sample (n = 10) to determine whether it is worthwhile to harvest all plots (N = 100).
+
 \begin{figure}[htbp]
 	 \centering
-	 \includegraphics[width=0.51\textwidth]{C:/Users/score/Downloads/imagelatex.jpg}
+	 \includegraphics[width=0.9\textwidth]{C:/Users/Scoresh/Downloads/s1.png}
 \end{figure}
 
-\subsubsection{1. The authors use an analogy about the relationship
-between a sample and a population. They introduce this analogy at the
-beginning of the chapter and use it throughout the chapter. Identify the
-analogy.}\label{the-authors-use-an-analogy-about-the-relationship-between-a-sample-and-a-population.-they-introduce-this-analogy-at-the-beginning-of-the-chapter-and-use-it-throughout-the-chapter.-identify-the-analogy.}
+\begin{figure}[htbp]
+	 \centering
+	 \includegraphics[width=0.9\textwidth]{C:/Users/Scoresh/Downloads/s2.png}
+\end{figure}
 
-Vegetable soup; To decide whether or not it meets my standards, you can
-just try a spoonful or two. This should be representative of the full
-pot.
+The farmer could try to estimate the true population mean yield, mu, based on his one sample.
 
-\subsubsection{2. ``Bias is the bane of sampling-the one thing above all
-to avoid.'' BVD, p. 271. Define bias from a sampling perspective in one
-sentence.}\label{bias-is-the-bane-of-sampling-the-one-thing-above-all-to-avoid.-bvd-p.-271.-define-bias-from-a-sampling-perspective-in-one-sentence.}
+For teaching + learning purposes, and for our analysis, we need to know the population mean, which his y = 220.95 units.
+The population standard deviation is s\_y = 51.7 units.
 
-Bias is introduced by allowing your own ideas to influence sampling;
-conclusions based on bias are unsalvageable and flawed.
+\paragraph{1. Why do we sample? Oftentimes the purpose is to estimate unknown/unknowable population parameters like the population mean. With that in mind, order the Sample Designs from best to worst in terms of which design tended to better estimate the actual population mean corn yield.}\label{why-do-we-sample-oftentimes-the-purpose-is-to-estimate-unknownunknowable-population-parameters-like-the-population-mean.-with-that-in-mind-order-the-sample-designs-from-best-to-worst-in-terms-of-which-design-tended-to-better-estimate-the-actual-population-mean-corn-yield.}
 
-\subsubsection{3. ``To avoid bias and make the sample as representative
-as possible, you might be tempted to handpick the individuals included
-in the sample with care and precision. The best strategy is to do
-something quite different.'' BVD, p.
-272.}\label{to-avoid-bias-and-make-the-sample-as-representative-as-possible-you-might-be-tempted-to-handpick-the-individuals-included-in-the-sample-with-care-and-precision.-the-best-strategy-is-to-do-something-quite-different.-bvd-p.-272.}
+Since the population mean looks to be between 200 and 250, three of the five distributions fit this description. The SRS is roughly unimodal, with the greatest (out of the three tables with a mean \textasciitilde225) inter-quartile range. The best out of the three in terms of the IQR is the "Stratified by Column", and the second best seems to be "Stratified by Row." This is because the column has a significantly lower IQR than row. Convenience 1 \& 2 were inherently flawed in their sampling methods, so a mean of 150 (convenience 1), and a mean of 175 (convenience 2) are not correct in terms of results. In this case, the order will be (best to worst): \{Stratified by Column, Stratified by Row, SRS, Convenience 2, Convenience 1\}
 
- \textbf{ randomly. } 
+\paragraph{2. In 2-4 sentences, make a persuasive statement about why the two convenience sample designs do not provide effective estimators for the actual mean yield of the population (N = 100) of plots.}\label{in-2-4-sentences-make-a-persuasive-statement-about-why-the-two-convenience-sample-designs-do-not-provide-effective-estimators-for-the-actual-mean-yield-of-the-population-n-100-of-plots.}
 
-\subsubsection{4. The authors wrote about five legitimate sampling
-methods. Identify as many as you
-can.}\label{the-authors-wrote-about-five-legitimate-sampling-methods.-identify-as-many-as-you-can.}
+Both convenience 1 \& 2 were flawed in their sampling ways.
 
-\begin{itemize}
-\tightlist
-\item
-  Truly random (simple)
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Selecting people truly randomly
-  \end{itemize}
-\item
-  Stratified
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Identifying homogenous groups and then sampling from them
-  \end{itemize}
-\item
-  Cluster
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Splitting population into similar parts and them sampling them
-  \end{itemize}
-\item
-  Systematic
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Sampling population using systematic methods
-  \end{itemize}
-\end{itemize}
-
-\subsubsection{5. Choose one of the sampling methods from your answer to
-question four and describe
-it.}\label{choose-one-of-the-sampling-methods-from-your-answer-to-question-four-and-describe-it.}
-
-Cluster: When splitting a population into multiple easy-to-manage parts
-and then sampling a few random points from each cluster.
-
-\subsubsection{6. If samples are drawn at random, would we expect them
-to generally differ one from another? Briefly
-explain.}\label{if-samples-are-drawn-at-random-would-we-expect-them-to-generally-differ-one-from-another-briefly-explain.}
-
-Yes; truly random samples will differ from each other because each
-combination has the same chance of being drawn.
-
-\subsubsection{7. ``Bad sample designs yield worthless data. Many of the
-most convenient forms of sampling can be seriously biased. And there is
-no way to correct for the bias from a bad sample.'' BVD, p. 282. The
-authors wrote about four major forms of bias. Identify as many as you
-can.}\label{bad-sample-designs-yield-worthless-data.-many-of-the-most-convenient-forms-of-sampling-can-be-seriously-biased.-and-there-is-no-way-to-correct-for-the-bias-from-a-bad-sample.-bvd-p.-282.-the-authors-wrote-about-four-major-forms-of-bias.-identify-as-many-as-you-can.}
-
-\begin{itemize}
-\tightlist
-\item
-  Volunteer Sample Bias
-\item
-  Convenience sampling
-\item
-  Bad Sample Frame
-\item
-  Undercoverage
-\end{itemize}
-
-\subsubsection{8. Choose one of the forms of bias and write about
-it.}\label{choose-one-of-the-forms-of-bias-and-write-about-it.}
-
-Undercoverage is where some portion of the population is not sampled at
-all. This can arise from any reason.
+\paragraph{3. Use the summary statistics to make a compelling case for why one design is better than the other two when comparing the SRS, Stratified by Column, and Stratified by Row sample designs.}\label{use-the-summary-statistics-to-make-a-compelling-case-for-why-one-design-is-better-than-the-other-two-when-comparing-the-srs-stratified-by-column-and-stratified-by-row-sample-designs.}
 
 
 

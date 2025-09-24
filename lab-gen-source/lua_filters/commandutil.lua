@@ -62,7 +62,7 @@ local function parseImage(value)
     returnLatex = returnLatex .. "\\begin{figure}[htbp]\n"
     returnLatex = returnLatex .. "\t \\centering\n"
     returnLatex = returnLatex .. "\t \\includegraphics[width=".. width .. "\\textwidth]{" .. image_path ..  "}\n"
-    returnLatex = returnLatex .. "\\end{figure}\n"
+    returnLatex = returnLatex .. "\\end{figure}\n\n"
     
 
 

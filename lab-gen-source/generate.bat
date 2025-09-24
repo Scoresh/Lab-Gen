@@ -64,6 +64,7 @@ EXIT /B 0
   echo Generating PDF...
   pandoc ^
   --template=latex_templates/basetemplate.tex^
+  --wrap preserve^
   --from markdown-smart-smart ../projects/projects_markdown/%1.md -o ../projects/projects_rendered/%1.pdf^
   --pdf-engine=lualatex^
   --lua-filter=lua_filters/preprocess.lua^
@@ -75,11 +76,20 @@ EXIT /B 0
   echo Generating LaTeX...
   pandoc ^
   --template=latex_templates/basetemplate.tex^
+  --wrap preserve^
   --from markdown-smart-smart ../projects/projects_markdown/%1.md -o ../projects/projects_debug/%1.tex^
   --pdf-engine=lualatex^
   --lua-filter=lua_filters/preprocess.lua^
   --lua-filter=lua_filters/process.lua
 EXIT /B 0
+
+:convertDOCXtoMARKDOWN
+  echo Converting from DOCX to MARKDOWN...
+  pandoc ../projects/projects_docx/%1.docx -o ../projects/projects_markdown/%1.md
+EXIT /B 0
+
+
+
 
 ::-------------------------:
 :: Parses Flags; 
@@ -133,7 +143,21 @@ IF /I "%~1"=="-file" (
         GOTO :parseflags
     ) ELSE (
         call:warning Error: -file requires a value. Defaulting to ^file TEXT
-        SET "color=text"
+        SET "file=text"
+        EXIT /B 1
+    )
+)
+
+:: Check for -docx VALUE
+IF /I "%~1"=="-docx" (
+    IF NOT "%~2"=="" (
+        call :convertDOCXtoMARKDOWN %2
+        SHIFT
+        SHIFT
+        GOTO :parseflags
+    ) ELSE (
+        call:warning Error: -Docx requires a value. Defaulting to ^docx TEXT
+        call :convertDOCXtoMARKDOWN text
         EXIT /B 1
     )
 )
