@@ -1,0 +1,15 @@
+---
+author: Daniel Sabalakov, Anthony Smith, Soren Westerberg
+email: danielsabalakov@gmail.com
+class: DE Intro to Statistics I
+title: Down the River
+# quote: \``\\textit{Truth is ever to be found in the simplicity, and not in the multiplicity and confusion of things}'' - Issac Newton
+---
+Instructions: Use the graphical displays and statistical summaries to answer the questions.  Recall, the farmer is going to use the results of a sample (n = 10) to determine whether it is worthwhile to harvest all plots (N = 100).
+
+@!image path="C:/Users/score/Downloads/s1.png" width=0.9 !@
+@!image path="C:/Users/score/Downloads/s2.png" width=0.9 !@
+
+### Use the summary statistics to make a compelling case for why one design is better than the other two when comparing the SRS, Stratified by Column, and Stratified by Row sample designs.
+
+Stratified by Column is the best design to use for the problem Rolling Down the River. Stratified by Column has a mean of 220.60, and a standard deviation of 6.79, while Stratified by Row’s mean is 223.82, and its standard deviation is 13.3. Lastly, the Simple Random Sample yields a mean of 220.68, and a standard deviation of 17.29. While all three designs have similar means, the difference is all in the spread. While Stratified by Column has a lot of outliers, this is only due to the outlier fence rule; almost all of Column’s outliers lie within the 75% of stratified by Row. Furthermore, since the IQR is low, 50% of the data in Stratified by Column lies in a very small spread (218-221), while SRS and Row lie in (208.5-233.5) and (219-233) respectively. By stratifying by column, each level gets equal representation.

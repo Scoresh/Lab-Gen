@@ -1,0 +1,177 @@
+\documentclass[letterpaper]{article}
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{graphicx} % Required for inserting images
+
+
+\def\tightlist{}
+
+
+\graphicspath{ {../images/} }
+\usepackage[margin=1in]{geometry}
+\usepackage{tikz}
+\usepackage[dvipsnames]{xcolor}
+\usetikzlibrary{calc}
+
+
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+
+
+% Useful packages
+\usepackage{hyperref}
+\usepackage{amsmath, amssymb}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{tocloft}
+\usepackage{titlesec}
+
+
+\usepackage{unicode-math}
+
+
+
+% Code highlighting (Pandoc uses listings or minted, but listings is safer without shell escape)
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  backgroundcolor=\color[gray]{0.95}
+}
+
+
+
+%Modifiable Commands; defaults set to none
+\newcommand{\titleDOC}{}
+\newcommand{\authorDOC}{Daniel Sabalakov}
+\newcommand{\dateDOC}{\today}
+\newcommand{\classDOC}{}
+% DEFAULT QUOTE IS BY ISSAC NEWTON. IF YOU DON'T WANT IT, DO: quote: @none
+\newcommand{\quoteDOC}{``\textit{Truth is ever to be found in the simplicity, and not in the multiplicity and confusion of things}'' - Issac Newton}
+
+% Header/Footer
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\lhead{\leftmark}
+
+
+
+
+
+% %Title Arguments
+% \title{\TITLEOFDOCUMENT}
+% \author{\AUTHOROFDOCUMENT}
+% \date{\today}
+
+
+%
+% ANYTHING BELOW HERE CAN GET PROCEDURALLY GENERATED
+%
+% BEGINNING OF DOCUMENT
+%
+%
+%
+\begin{document}
+
+%titlepage
+
+
+
+
+
+
+
+
+\renewcommand{\authorDOC}{Daniel Sabalakov}
+
+\renewcommand{\classDOC}{DE Intro to Statistics I}
+
+\renewcommand{\titleDOC}{Waterproofing Boots}
+
+\input{latex_templates/basetitle.tex}
+
+\section{Waterproofing Boots}\label{waterproofing-boots}
+
+``When in the Course of human events, it becomes necessary for one people to dissolve the political bands which have connected them with another, and to assume among the powers of the earth, the separate and equal station to which the Laws of Nature and of Nature\textquotesingle s God entitle them, a decent respect to the opinions of mankind requires that they should dismantle the causes which impel them to the seperation.
+
+We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the persuit of Happinesss.''
+
+\subsubsection{Manufactoring Questions}\label{manufactoring-questions}
+
+A manufacturer of boots plans to conduct an experiment to compare a new method of waterproofing to the current method. The appearance of the boots is not changed by either method. One hundred people who live in Seattle, where it rains frequently, volunteer to participate in the study. They will wear the boots as they normally would for 6 months. At the end of the 6 months, the boots will be returned to the company to be evaluated for water damage.
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  Identify the following:
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  The explanatory variable.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Old versus. New Waterproofing Method
+  \end{itemize}
+\item
+  The response variable.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Difference in Water Damage
+  \end{itemize}
+\item
+  The experimental units.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Subjects: People who live in Seattle participating in the study
+  \end{itemize}
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{1}
+\item
+  Identify some possibly confounding variables.
+\item
+  Describe a design for this experiment that uses the 100 volunteers. Include commentary on how it would be implemented. Recall, there are three experimental designs in the Great Bay Stat curriculum:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Completely randomized design\\
+\item
+  Randomized block design\\
+\item
+  Matched pairs design
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{3}
+\item
+  Three of the four principles of experimental design are necessary for any well-designed experiment: control, randomization, replication. For the design that you chose in part charlie, describe the why and the how you would implement each of the three principles.
+\item
+  Could your design be double blinded? Explain.
+\item
+  Could you generalize the results of this study to customers who purchase these boots from across the U.S.? Explain.
+\end{enumerate}
+
+
+
+\end{document}
