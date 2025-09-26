@@ -1,0 +1,198 @@
+\documentclass[letterpaper]{article}
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{graphicx} % Required for inserting images
+
+
+\def\tightlist{}
+
+
+\graphicspath{ {../images/} }
+\usepackage[margin=1in]{geometry}
+\usepackage{tikz}
+\usepackage[dvipsnames]{xcolor}
+\usetikzlibrary{calc}
+
+
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+
+
+% Useful packages
+\usepackage{hyperref}
+\usepackage{amsmath, amssymb}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{tocloft}
+\usepackage{titlesec}
+
+
+\usepackage{unicode-math}
+
+
+
+% Code highlighting (Pandoc uses listings or minted, but listings is safer without shell escape)
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  backgroundcolor=\color[gray]{0.95}
+}
+
+
+
+%Modifiable Commands; defaults set to none
+\newcommand{\titleDOC}{}
+\newcommand{\authorDOC}{Daniel Sabalakov}
+\newcommand{\dateDOC}{\today}
+\newcommand{\classDOC}{}
+\newcommand{\emailDOC}{danielsabalakov@gmail.com}
+% DEFAULT QUOTE IS BY ISSAC NEWTON. IF YOU DON'T WANT IT, DO: quote: @none
+\newcommand{\quoteDOC}{``\textit{Truth is ever to be found in the simplicity, and not in the multiplicity and confusion of things}'' - Issac Newton}
+
+% Header/Footer
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\lhead{\leftmark}
+
+
+
+
+
+% %Title Arguments
+% \title{\TITLEOFDOCUMENT}
+% \author{\AUTHOROFDOCUMENT}
+% \date{\today}
+
+
+%
+% ANYTHING BELOW HERE CAN GET PROCEDURALLY GENERATED
+%
+% BEGINNING OF DOCUMENT
+%
+%
+%
+\begin{document}
+
+%titlepage
+
+
+
+
+
+
+
+
+\renewcommand{\classDOC}{DE Intro to Statistics I}
+
+\renewcommand{\quoteDOC}{``\textit{For the strength of the pack is the wolf, and the strength of the wolf is the pack}''}
+
+\renewcommand{\authorDOC}{Daniel Sabalakov}
+
+\renewcommand{\titleDOC}{OTE Sample Design}
+
+\input{latex_templates/basetitle.tex}
+
+\section{OTE: Sample Design}\label{ote-sample-design}
+
+Wolf-Pack Name: Daniel Sabalakov
+
+\subsubsection{Questions}\label{questions}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  Define simple random sample (SRS) design.\\
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Simple Random Sample (SRS) design is a method to design a sample such that each sample has an equal likelyhood of being chosen. This means that the sample is always inherently random; by doing this, it ensures that there will be minimal bias. In a population, this will ensure that the sample is representative of the population. However, SRS has its flaws when dealing with minorities or skewed destributions of demographics; SRS relies on sampling people at random, so in opinionated surveys, the majority of people would have an overwhelming opinion over the minority opinion.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Describe how you would choose a sample of 100 people from a population of 2,700 people using an SRS design.
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  I would assign each person of the population a unique identifier from 1-2,700 such that there will be no duplicate numbers. Then, with either the help of a random number table or a random number generator, I would choose 100 random people to survey. I would survey them and ensure that a response is recorded; this way, each combination of people has the same chance to be surveyed. I will also conduct this such that the sample is non-replacable so that no person is selected twice.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    In a random number generator, (In a computer language that gives a random decimal from {[}0,1) ), I would do the following.
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Let the decimal be variable "r". I would multiply by the sample range (2700) and type-cast the decimal to an integer by using the floor function. Then, I would add 1 to ensure that the range will be {[}1,2700{]}.
+    \item
+      In code, this will be:
+    \end{itemize}
+
+\begin{verbatim}
+    double r = Math.random();
+    int sample = (int)(r*2700)+1;
+\end{verbatim}
+  \end{itemize}
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Finish the sentence. The purpose of sampling is to\ldots{}
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{The purpose of sampling is to ensure that the sample is representative of the population by creating a bias-free sample design.}
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Identify one of the four types of sampling bias. Define that form of bias and provide an example of how such bias could occur.
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  One form of sampling bias is undercoverage bias. This occurs when a minority opinion is completely skipped over and is not represented in the sample. For example, if I were to sample people from the High School on opinions on the "Careers in Technical Education" program, I may completely glance over a CTE class if I conduct a small Simple Random Sample because there are fewer students in CTE than in a general class. This will then be biased and non-representative of the population because I skimmed over the CTE class. I would get around this by conducting a Stratified Sample by ensuring that people from CTE have a proportional influence on the sample. This would be done by splitting the sample into "strata:" (CTE, Non-CTE), taking the total number and then finding how many people "should" be sampled from the two, and randomly selecting people in the two to sample. In summary, undercoverage bias occurs when a minority population is not proportionally sampled in the general population.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  In New Hampshire, approximately 303,000 people are registered as Democrats, approximately 298,000 are registered as Republicans, and about 399,000 are registered as Independents. A pollsters decides \emph{to stratify} according to party registration and wants a sample of 900 registered voters. Determine the number of voters that should be selected from registered Democrats, Republicans, and Independents.\\
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Since people are registered politically like the following: \{Democrats: 303,000; Republicans: 298,000; Independents: 399,000\}, the total number of people in the state registered are approximately 1,000,000 (303000+298000+399000). That is a big number, but percentage wise, people are representative of the population like the following: \{Democrats: 30.3\%; Republicans: 29.8\%; Independents: 39.9\%\}. (39.9+30.3+29.8=100). In this case, if we are to sample 900 people, multiplying each percentage by 900 yields: \{Democrats: 272.7; Republcians: 268.2; Independents: 359.1\} (272.7+268.2+359.1=900). However, since we cannot sample a percentage of a person, we will round: \{Democrats: 273; Republicans: 268; Independents: 359\}. (273+268+359=900). So, to select voters from the Democrats, Republicans, and Independents in a stratified sample of 900 people, we should select 273 Democrats, 268 Republicans, and 359 Independents.
+\end{itemize}
+
+
+
+\end{document}
