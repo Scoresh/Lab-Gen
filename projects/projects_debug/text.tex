@@ -21,6 +21,8 @@
 \usepackage{lmodern}
 \usepackage[english]{babel}
 
+\usepackage{longtable}
+\usepackage{booktabs}
 
 % Useful packages
 \usepackage{hyperref}
@@ -29,6 +31,11 @@
 \usepackage{setspace}
 \usepackage{tocloft}
 \usepackage{titlesec}
+
+
+\usepackage{unicode-math}
+
+
 
 % Code highlighting (Pandoc uses listings or minted, but listings is safer without shell escape)
 \usepackage{listings}
@@ -46,6 +53,7 @@
 \newcommand{\authorDOC}{Daniel Sabalakov}
 \newcommand{\dateDOC}{\today}
 \newcommand{\classDOC}{}
+\newcommand{\emailDOC}{danielsabalakov@gmail.com}
 % DEFAULT QUOTE IS BY ISSAC NEWTON. IF YOU DON'T WANT IT, DO: quote: @none
 \newcommand{\quoteDOC}{``\textit{Truth is ever to be found in the simplicity, and not in the multiplicity and confusion of things}'' - Issac Newton}
 
@@ -83,41 +91,27 @@
 
 
 
-\renewcommand{\titleDOC}{Ch. 12 Analysis}
-
 \renewcommand{\classDOC}{DE Intro to Statistics I}
 
 \renewcommand{\authorDOC}{Daniel Sabalakov}
 
+\renewcommand{\titleDOC}{Ch. 12 Analysis}
+
 \input{latex_templates/basetitle.tex}
 
-\subsubsection{1. The authors use an analogy about the relationship
-between a sample and a population. They introduce this analogy at the
-beginning of the chapter and use it throughout the chapter. Identify the
-analogy.}\label{the-authors-use-an-analogy-about-the-relationship-between-a-sample-and-a-population.-they-introduce-this-analogy-at-the-beginning-of-the-chapter-and-use-it-throughout-the-chapter.-identify-the-analogy.}
+\subsubsection{1. The authors use an analogy about the relationship between a sample and a population. They introduce this analogy at the beginning of the chapter and use it throughout the chapter. Identify the analogy.}\label{the-authors-use-an-analogy-about-the-relationship-between-a-sample-and-a-population.-they-introduce-this-analogy-at-the-beginning-of-the-chapter-and-use-it-throughout-the-chapter.-identify-the-analogy.}
 
-Vegetable soup; To decide whether or not it meets my standards, you can
-just try a spoonful or two. This should be representative of the full
-pot.
+Vegetable soup; To decide whether or not it meets my standards, you can just try a spoonful or two. This should be representative of the full pot.
 
-\subsubsection{2. ``Bias is the bane of sampling-the one thing above all
-to avoid.'' BVD, p. 271. Define bias from a sampling perspective in one
-sentence.}\label{bias-is-the-bane-of-sampling-the-one-thing-above-all-to-avoid.-bvd-p.-271.-define-bias-from-a-sampling-perspective-in-one-sentence.}
+\subsubsection{2. ``Bias is the bane of sampling-the one thing above all to avoid.'' BVD, p. 271. Define bias from a sampling perspective in one sentence.}\label{bias-is-the-bane-of-sampling-the-one-thing-above-all-to-avoid.-bvd-p.-271.-define-bias-from-a-sampling-perspective-in-one-sentence.}
 
-Bias is introduced by allowing your own ideas to influence sampling;
-conclusions based on bias are unsalvageable and flawed.
+Bias is introduced by allowing your own ideas to influence sampling; conclusions based on bias are unsalvageable and flawed.
 
-\subsubsection{3. ``To avoid bias and make the sample as representative
-as possible, you might be tempted to handpick the individuals included
-in the sample with care and precision. The best strategy is to do
-something quite different.'' BVD, p.
-272.}\label{to-avoid-bias-and-make-the-sample-as-representative-as-possible-you-might-be-tempted-to-handpick-the-individuals-included-in-the-sample-with-care-and-precision.-the-best-strategy-is-to-do-something-quite-different.-bvd-p.-272.}
+\subsubsection{3. ``To avoid bias and make the sample as representative as possible, you might be tempted to handpick the individuals included in the sample with care and precision. The best strategy is to do something quite different.'' BVD, p. 272.}\label{to-avoid-bias-and-make-the-sample-as-representative-as-possible-you-might-be-tempted-to-handpick-the-individuals-included-in-the-sample-with-care-and-precision.-the-best-strategy-is-to-do-something-quite-different.-bvd-p.-272.}
 
-\newpage
+ \textbf{ randomly. } 
 
-\subsubsection{4. The authors wrote about five legitimate sampling
-methods. Identify as many as you
-can.}\label{the-authors-wrote-about-five-legitimate-sampling-methods.-identify-as-many-as-you-can.}
+\subsubsection{4. The authors wrote about five legitimate sampling methods. Identify as many as you can.}\label{the-authors-wrote-about-five-legitimate-sampling-methods.-identify-as-many-as-you-can.}
 
 \begin{itemize}
 \tightlist
@@ -155,25 +149,15 @@ can.}\label{the-authors-wrote-about-five-legitimate-sampling-methods.-identify-a
   \end{itemize}
 \end{itemize}
 
-\subsubsection{5. Choose one of the sampling methods from your answer to
-question four and describe
-it.}\label{choose-one-of-the-sampling-methods-from-your-answer-to-question-four-and-describe-it.}
+\subsubsection{5. Choose one of the sampling methods from your answer to question four and describe it.}\label{choose-one-of-the-sampling-methods-from-your-answer-to-question-four-and-describe-it.}
 
-Cluster: When splitting a population into multiple easy-to-manage parts
-and then sampling a few random points from each cluster.
+Cluster: When splitting a population into multiple easy-to-manage parts and then sampling a few random points from each cluster.
 
-\subsubsection{6. If samples are drawn at random, would we expect them
-to generally differ one from another? Briefly
-explain.}\label{if-samples-are-drawn-at-random-would-we-expect-them-to-generally-differ-one-from-another-briefly-explain.}
+\subsubsection{6. If samples are drawn at random, would we expect them to generally differ one from another? Briefly explain.}\label{if-samples-are-drawn-at-random-would-we-expect-them-to-generally-differ-one-from-another-briefly-explain.}
 
-Yes; truly random samples will differ from each other because each
-combination has the same chance of being drawn.
+Yes; truly random samples will differ from each other because each combination has the same chance of being drawn.
 
-\subsubsection{7. ``Bad sample designs yield worthless data. Many of the
-most convenient forms of sampling can be seriously biased. And there is
-no way to correct for the bias from a bad sample.'' BVD, p. 282. The
-authors wrote about four major forms of bias. Identify as many as you
-can.}\label{bad-sample-designs-yield-worthless-data.-many-of-the-most-convenient-forms-of-sampling-can-be-seriously-biased.-and-there-is-no-way-to-correct-for-the-bias-from-a-bad-sample.-bvd-p.-282.-the-authors-wrote-about-four-major-forms-of-bias.-identify-as-many-as-you-can.}
+\subsubsection{7. ``Bad sample designs yield worthless data. Many of the most convenient forms of sampling can be seriously biased. And there is no way to correct for the bias from a bad sample.'' BVD, p. 282. The authors wrote about four major forms of bias. Identify as many as you can.}\label{bad-sample-designs-yield-worthless-data.-many-of-the-most-convenient-forms-of-sampling-can-be-seriously-biased.-and-there-is-no-way-to-correct-for-the-bias-from-a-bad-sample.-bvd-p.-282.-the-authors-wrote-about-four-major-forms-of-bias.-identify-as-many-as-you-can.}
 
 \begin{itemize}
 \tightlist
@@ -187,11 +171,9 @@ can.}\label{bad-sample-designs-yield-worthless-data.-many-of-the-most-convenient
   Undercoverage
 \end{itemize}
 
-\subsubsection{8. Choose one of the forms of bias and write about
-it.}\label{choose-one-of-the-forms-of-bias-and-write-about-it.}
+\subsubsection{8. Choose one of the forms of bias and write about it.}\label{choose-one-of-the-forms-of-bias-and-write-about-it.}
 
-Undercoverage is where some portion of the population is not sampled at
-all. This can arise from any reason.
+Undercoverage is where some portion of the population is not sampled at all. This can arise from any reason.
 
 
 

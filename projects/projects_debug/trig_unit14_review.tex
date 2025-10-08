@@ -1,0 +1,211 @@
+\documentclass[letterpaper]{article}
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{graphicx} % Required for inserting images
+
+
+\def\tightlist{}
+
+
+\graphicspath{ {../images/} }
+\usepackage[margin=1in]{geometry}
+\usepackage{tikz}
+\usepackage[dvipsnames]{xcolor}
+\usetikzlibrary{calc}
+
+
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+
+\usepackage{longtable}
+\usepackage{booktabs}
+
+% Useful packages
+\usepackage{hyperref}
+\usepackage{amsmath, amssymb}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{tocloft}
+\usepackage{titlesec}
+
+
+\usepackage{unicode-math}
+
+
+
+% Code highlighting (Pandoc uses listings or minted, but listings is safer without shell escape)
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  backgroundcolor=\color[gray]{0.95}
+}
+
+
+
+%Modifiable Commands; defaults set to none
+\newcommand{\titleDOC}{}
+\newcommand{\authorDOC}{Daniel Sabalakov}
+\newcommand{\dateDOC}{\today}
+\newcommand{\classDOC}{}
+\newcommand{\emailDOC}{danielsabalakov@gmail.com}
+% DEFAULT QUOTE IS BY ISSAC NEWTON. IF YOU DON'T WANT IT, DO: quote: @none
+\newcommand{\quoteDOC}{``\textit{Truth is ever to be found in the simplicity, and not in the multiplicity and confusion of things}'' - Issac Newton}
+
+% Header/Footer
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\lhead{\leftmark}
+
+
+
+
+
+% %Title Arguments
+% \title{\TITLEOFDOCUMENT}
+% \author{\AUTHOROFDOCUMENT}
+% \date{\today}
+
+
+%
+% ANYTHING BELOW HERE CAN GET PROCEDURALLY GENERATED
+%
+% BEGINNING OF DOCUMENT
+%
+%
+%
+\begin{document}
+
+%titlepage
+
+
+
+
+
+
+
+
+\renewcommand{\classDOC}{Trigonometry}
+
+\renewcommand{\authorDOC}{Daniel Sabalakov}
+
+\renewcommand{\titleDOC}{Unit 14 Review}
+
+\input{latex_templates/basetitle.tex}
+
+\section{Topics covered in quiz}\label{topics-covered-in-quiz}
+
+\begin{itemize}
+\tightlist
+\item
+  Graphing using Unit Circle
+\item
+  Solving equations with general solutions / restrictive intervals
+\item
+  Modeling sinusoidal functions given Maximum and Minimum
+\end{itemize}
+
+\section{Unit Circle}\label{unit-circle}
+
+\begin{figure}[htbp]
+	 \centering
+	 \includegraphics[width=0.9\textwidth]{C:/Users/score/Downloads/ucirc.png}
+\end{figure}
+
+\(\newline\)
+
+\section{Questions}\label{questions}
+
+\subsection{Topic 1: Solving Equations with General Solutions / Restrictive Intervals}\label{topic-1-solving-equations-with-general-solutions-restrictive-intervals}
+
+Solve the following equations. Assume the unknown variable is between {[}0,\(\frac{\pi}{2}\)) (In radians)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(2cos(2x)-\sqrt{3} = 0\)
+\item
+  \(4sin^2(\theta)-4=1\)
+\item
+  \(3tan(x)+\sqrt{3}=0\)
+\item
+  \(sec(u)\sqrt{3}=2\)
+\item
+  \textbf{Challenge:} \(2sin^2(z)*cot^2(z)=1\)
+\end{enumerate}
+
+Solve the following equations for their general solutions:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\sin(x) = \frac{1}{2}\)
+\item
+  \(\cos(x) = -\frac{\sqrt{2}}{2}\)
+\item
+  \(\tan(x) = \sqrt{3}\)
+\item
+  \(\sin(x) = -\frac{\sqrt{3}}{2}\)
+\item
+  \textbf{Challenge:} \(2\cos^2(x) - 3\sin(x) = 0\)
+\end{enumerate}
+
+\subsection{Topic 2: Modelling sinusoidal functions given Maximum and Minimums}\label{topic-2-modelling-sinusoidal-functions-given-maximum-and-minimums}
+
+Model the following three problems using Sine. Assume any point is either a maximum or a minimum point.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \((0,0),(1,\pi)\)
+\item
+  \((3,2),(5,4)\)
+\item
+  \((\pi,\pi),(-\pi,-\pi)\)
+\end{enumerate}
+
+Model the following three problems using Cosine. Assume any point is either a maximum or a minimum point.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \((2,2),(3,4)\)
+\item
+  \((0,1),(2\pi,3)\)
+\item
+  \((2\pi,2\pi),(-2\pi,-2\pi)\)
+\end{enumerate}
+
+\subsection{Topic 3: Graphing using Unit Circle}\label{topic-3-graphing-using-unit-circle}
+
+\subsubsection{Graph the following problems}\label{graph-the-following-problems}
+
+\begin{figure}[htbp]
+	 \centering
+	 \includegraphics[width=0.9\textwidth]{C:/Users/score/Downloads/graphingSinEZ.png}
+\end{figure}
+
+\begin{figure}[htbp]
+	 \centering
+	 \includegraphics[width=0.9\textwidth]{C:/Users/score/Downloads/graphingSinMED.png}
+\end{figure}
+
+\begin{figure}[htbp]
+	 \centering
+	 \includegraphics[width=0.9\textwidth]{C:/Users/score/Downloads/graphingSinHARD.png}
+\end{figure}
+
+
+
+
+\end{document}
