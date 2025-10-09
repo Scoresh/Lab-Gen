@@ -11,6 +11,17 @@ To show the denaturing of amylase through the change in pH levels and how the ef
 
 # Background / Introduction
 
+An enzyme is a catalyst that speeds up the rate of a reaction. An enzyme is not destroyed during this reaction and can be used multiple times. Enzymes work by lowering activation energy of a catalyst reaction. 
+
+@!image path="C:/Users/Scoresh/Desktop/Lab-Gen/Lab-Gen/lab-gen-source/images/reactants.png" width=0.9 !@
+
+Enzymes have four factors that affect rate of reaction. Each specific enzyme works best at specific temperatures and pH levels. Generally, rising temperature speeds up a reaction, but extreme heat may cause an enzyme to denature. Additionally, each enzyme has an ideal pH range. Extreme pH values may cause enzymes to denature. Denaturing occurs when the enzyme loses its shape due to these stressing factors. 
+
+This lab is all about exploring denaturing via acidity.
+
+Amylase is an enzyme that helps with the digestion of carbohydrates. It is made in the pancreas and in saliva glands. The primary rose of amylase 
+
+
 # Question / Problem
 
 How does ***amylase***, an enzyme found in saliva, break polysaccharides into simpler carbohydrates in different PH levels? 
@@ -84,10 +95,12 @@ An exemplar image of an example setup without pH solutions can be found below:
 6. Carefully, the first set of test tubes was added onto each respective test tube of the second set and began a stopwatch.
 7. This is where the rush began. During the 30 seconds of curing (determined via the stopwatch), each test tube was vortexed to ensure that each solution was at least somewhat homogenous. This was a step where caution was taken to ensure that mixture escaped the test tube.
 8. After the 30 seconds of curing (determined via the stopwatch) was over, one urineanalysis strip was placed into each test tube to allow for glucose measurement.
-9. The stopwatch was reset and began counting to 30 seconds again.
+9. The stopwatch was reset and began counting to 30 seconds again. After the 30 seconds were over, each urineanalysis strip was carefully removed from each test tube. Then, the urineanalysis strip was compared to the package, and the glucose levels were measured and recorded.
 
 
 # Data / Results
+
+## Table
 
 | Group | Glucose Measured (mmol/L) |
 |:---:|:---:|
@@ -96,5 +109,11 @@ An exemplar image of an example setup without pH solutions can be found below:
 |pH=5.5|5|
 |pH=4.0|0|
 
+## Graph
+
+@!image path="C:/Users/Scoresh/Desktop/Lab-Gen/Lab-Gen/lab-gen-source/images/glucoseVgroup.png" width=0.9 !@
+
+
 # Conclusion / Discussion
 
+The lab results support the hypothesis. Both control groups (Positive, Negative) behaved as expected. Since the negative control does not contain saliva, it shouldn't have amylase. This removed sources of possible error from faulty urinanalysis strips. Additionally, the positive control group behaved as expected, resulting in the highest concentration of glucose. Since the optimal pH level for amylase is 7.0 **INSERT CITATION HERE** , it is within reason to correlate the two. The two experimental groups behaved as expected. The acidic pH 4.0 solution had similar results to the negative control because at a pH of 4.0, amylase denatures **INSERT CITATION HERE**. The less acidic pH 5.5 solution also behaved as expected, yielding in a result greater than 0 but less than the positive control group. This, hence, means that the hypothesis can be accepted.
