@@ -13,13 +13,21 @@ To show the denaturing of amylase through the change in pH levels and how the ef
 
 An enzyme is a catalyst that speeds up the rate of a reaction. An enzyme is not destroyed during this reaction and can be used multiple times. Enzymes work by lowering activation energy of a catalyst reaction. 
 
-@!image path="C:/Users/Scoresh/Desktop/Lab-Gen/Lab-Gen/lab-gen-source/images/reactants.png" width=0.9 !@
+@!image path="C:/Users/Scoresh/Desktop/Lab-Gen/Lab-Gen/lab-gen-source/images/reactants.png" width=0.5 !@
 
-Enzymes have four factors that affect rate of reaction. Each specific enzyme works best at specific temperatures and pH levels. Generally, rising temperature speeds up a reaction, but extreme heat may cause an enzyme to denature. Additionally, each enzyme has an ideal pH range. Extreme pH values may cause enzymes to denature. Denaturing occurs when the enzyme loses its shape due to these stressing factors. 
+Enzymes have four factors that affect rate of reaction. Each specific enzyme works best at specific temperatures and pH levels. Generally, rising temperature speeds up a reaction, but extreme heat may cause an enzyme to denature. Additionally, each enzyme has an ideal pH range. Extreme pH values may cause enzymes to denature. Denaturing occurs when the enzyme loses its shape due to these stressing factors. This lab is explores denaturing of a specific enzyme, amylase, via acidity.
 
-This lab is all about exploring denaturing via acidity.
+Amylase is an enzyme that helps with the digestion of carbohydrates. It is made in the pancreas and in saliva glands. Amylase is categorized into "3 main classes -- alpha-, beta-, and gamma amalyses-- each targeting distinct segments of the carbohydrate molecule. Alpha amylase is present in humans, animals plants and microbes, whereas beta amylase is primarily foudn in microbes and plants. Gamma amylase, on the other hand, can be locked in both animals and plants." **CITATION NEEDD** Amylase also stays stable for 4 days at room temperature, so there is no worry about spoiling of amylase.
 
-Amylase is an enzyme that helps with the digestion of carbohydrates. It is made in the pancreas and in saliva glands. The primary rose of amylase 
+$\alpha$ amylase has an optimal pH of 7, following this curve.
+
+@!image path="C:/Users/Scoresh/Desktop/Lab-Gen/Lab-Gen/lab-gen-source/images/amylasecurve.png" width=0.9 !@
+
+$\alpha$-amylase splits linear carbohydrate polymers at internal bonds. **CITATION NEED** It does so via the process of hydrolysis. Considered the reverse of the polymer building process dehydration synthesis, "(hydrolysis) is a chemical process in which a molecule is cleaved into two fragments by the addition of a molecule of water. One fragment of the parent molecule gains a hydrogen ion ($H^+$), while the other group collects the remaining __hydroxyl__ group ($OH^-$)." **CITATION NEEDED** Amylase completes this by cleaving a starch (a polysaccharide) into "smaller molecules, ultimately yielding maltose, which in turn is cleaved into two glucose molecules." **CITATION NEEDED** 
+
+@!image path="C:/Users/Scoresh/Desktop/Lab-Gen/Lab-Gen/lab-gen-source/images/amylasereaction.jpg" width=0.5 !@
+
+This correlation between the presence of amylase in saliva and 
 
 
 # Question / Problem
