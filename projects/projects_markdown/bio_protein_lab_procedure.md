@@ -6,12 +6,17 @@ title: Enzyme Lab Report
 ---
 
 
+@!raw \begin{doublespace} !@
+
+
+
+
 # Abstract
 
 Amylase, an enzyme found in saliva, breaks down polysaccharides into sugars such as maltose, which breaks down into glucose. This lab used human saliva, saltines, and solutions of various pH levels to determine the correlation between pH and $\alpha$-amylase efficiency. The data showed no notable correlation between pH levels and glucose levels in each individual solution. However, a second conclusion was drawn; human saliva contains no maltase, and hence, cannot break down polysaccharidic starches into glucose via the enzymes found in human saliva. This impacts the knowledge that saliva cannot break down polysaccharides into glucose. 
 
 
-
+$\pagebreak$
 
 # Background / Introduction
 
@@ -19,13 +24,14 @@ Many students recall doing a lab during elementary / middle school biology, wher
 
 An enzyme is a catalyst that speeds up the rate of a reaction. An enzyme is not destroyed during this reaction and can be used multiple times. Enzymes work by lowering activation energy of a catalyst reaction. 
 
-@!image path="C:/Users/score/Desktop/LABORATORY_MARKDOWN_PROJECTS/General/lab-gen-source/images/reactants.png" width=0.8 !@
+@!image path="C:/Users/score/Desktop/LABORATORY_MARKDOWN_PROJECTS/General/lab-gen-source/images/reactants.png" width=0.65 !@
 
 Enzymes have four factors that affect rate of reaction. Each specific enzyme works best at specific temperatures and pH levels. Generally, rising temperature speeds up a reaction, but extreme heat may cause an enzyme to denature. Additionally, each enzyme has an ideal pH range. Extreme pH values may cause enzymes to denature. Denaturing occurs when the enzyme loses its shape due to these stressing factors. This lab is explores denaturing of a specific enzyme, amylase, via acidity.
 
 Amylase is an enzyme that helps with the digestion of carbohydrates. It is made in the pancreas and in saliva glands. Amylase is categorized into "3 main classes -- alpha-, beta-, and gamma amalyses-- each targeting distinct segments of the carbohydrate molecule. Alpha amylase is present in humans, animals plants and microbes, whereas beta amylase is primarily found in microbes and plants. Gamma amylase, on the other hand, can be locked in both animals and plants." (Akinfemiwa, 2023) Amylase also stays stable for 4 days at room temperature, so there is no worry about spoiling of amylase.
 
 $\alpha$-amylase has an optimal pH of 7, following this curve.
+$\pagebreak$
 
 @!image path="C:/Users/score/Desktop/LABORATORY_MARKDOWN_PROJECTS/General/lab-gen-source/images/amylasecurve.png" width=0.5 !@
 
@@ -46,7 +52,7 @@ How does ***amylase***, an enzyme found in saliva, break polysaccharides into si
 If the pH levels of three solutions of pH {4, 5.5, 7}, are exposed to the enzyme *amylase* found in saliva and mixed with a polysaccharide containing cracker, then there should be a trend whereas the pH 7 solution will have the highest density of glucose, the pH 5.5 solution should have the medium density of glucose, and the pH 4 solution should have the lowest density of glucose.
 
 ## Experimental Elements
-- Independent Variable: PH Level of the solution
+- Independent Variable: pH Level of the solution
 - Dependent Variable: Glucose concentration produced (in mmol/L)
 - Experimental Groups:
     - Group 1: Saltine Cracker, Saliva, pH 4.0 solution
@@ -60,6 +66,7 @@ If the pH levels of three solutions of pH {4, 5.5, 7}, are exposed to the enzyme
     - Cracker to Solution ratio
     - Time allowed for enzymatic processes
     - Method of glucose measurement
+
 
 # Materials / Set up
 ## Materials
@@ -98,6 +105,7 @@ An exemplar image of an example setup without pH solutions can be found below:
 
 @!image path="C:/Users/score/Desktop/LABORATORY_MARKDOWN_PROJECTS/General/lab-gen-source/images/bio-lab-temp.png" width=0.9 !@
 
+
 # Methods / Procedure
 
 1. Saliva was collected by each individual labmate into their respective plastic test tube. This was to minimize the safety impact of having different contaminants on each test tube.
@@ -122,6 +130,9 @@ An exemplar image of an example setup without pH solutions can be found below:
 |pH=5.5|0|
 |pH=4.0|0|
 
+
+$\pagebreak$
+
 ## Graph
 
 @!image path="C:/Users/score/Desktop/LABORATORY_MARKDOWN_PROJECTS/General/lab-gen-source/images/glucoseVgroup.png" width=0.7 !@
@@ -129,9 +140,12 @@ An exemplar image of an example setup without pH solutions can be found below:
 
 # Conclusion / Discussion
 
-The lab results reject the hypothesis. Only the negative control group and the pH 4.0 experimental group behaved as expected. Since the negative control does not contain saliva, it shouldn't have amylase. This removed sources of possible error from faulty urinanalysis strips. However, the positive control and the experimental pH 5.5 group behaved unexpectedly. This is due to faulty research in the very beginning of the lab procedure. Amylase breaks polysaccharides into maltose, which is a disaccharide of two glucoses. Since the lab experiment measured levels of glucose, the urineanalysis was looking for the wrong molecule. Since maltose "catalyzes the hydrolysis of the disaccharide maltose to the simple sugar glucose," (The Editors) and is found "synthesised by cells of the mucous membrane lining the intestinal wall," (The Editors) it is unlikely that any maltase is present in saliva. This fact, in juxtaposition with the fact that only maltose is in saliva, makes the probability of glucose in each test group relatively small. This would have been avoided if the lab included maltose indicators *or* if there was maltase present in the solution. Hence, these lab results reject the hypothesis. 
+The data observed rejects the hypothesis. Only the negative control group and the pH 4.0 experimental group behaved as expected. Since the negative control does not contain saliva, it shouldn't have amylase. This removed sources of possible error from faulty urinanalysis strips. However, the positive control and the experimental pH 5.5 group behaved unexpectedly. This is due to faulty research in the very beginning of the lab procedure. Amylase breaks polysaccharides into maltose, which is a disaccharide of two glucoses. Since the lab experiment measured levels of glucose, the urineanalysis was looking for the wrong molecule. Since maltose "catalyzes the hydrolysis of the disaccharide maltose to the simple sugar glucose," (The Editors) and is found "synthesised by cells of the mucous membrane lining the intestinal wall," (The Editors) it is unlikely that any maltase is present in saliva. This fact, in juxtaposition with the fact that only maltose is in saliva, makes the probability of glucose in each test group relatively small. This would have been avoided if the lab included maltose indicators *or* if there was maltase present in the solution. Hence, the data observed rejects the hypothesis. 
 
 The common misconception that amylase breaks starches into glucose comes from a common elementary school lab. Students are instructed to chew a saltine cracker for an exorbitant amount of time; eventually, the saltine tastes sweet inside the mouth. Since sweetness is associated with sugar, many students falsly correlate glucose with the sweetness produced by saliva.  
+
+In the future, the data shows that future labs should either include artificial curing of the enzyme maltase to break down the maltose molecules into glucose, so that the urineanalysis strips can detect the glucose, or that urineanalysis strips that measure the presence of maltose should be purchased. 
+
 
 # **References**
 
@@ -145,3 +159,7 @@ Amylase, alpha - Worthington Enzyme Manual. Worthington Biochemical. (n.d.). htt
 + Parekh, V. J. (n.d.). Engineering Fundamentals of Biotechnology. Science Direct. https://www.sciencedirect.com/topics/immunology-and-microbiology/hydrolysis 
 + Peyrot des Gachons, C., & Breslin, P. A. S. (2016, October). Salivary amylase: Digestion and metabolic syndrome. Current diabetes reports. https://pmc.ncbi.nlm.nih.gov/articles/PMC6825871/ 
 + Rogers, K. (n.d.). Maltose. Encyclopædia Britannica. https://www.britannica.com/science/maltose 
+
+
+
+@!raw\\end{doublespace}!@
