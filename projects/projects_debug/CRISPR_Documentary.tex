@@ -1,0 +1,149 @@
+\documentclass[letterpaper]{article}
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{graphicx} % Required for inserting images
+
+
+\def\tightlist{}
+
+
+\graphicspath{ {../images/} }
+\usepackage[margin=1in]{geometry}
+\usepackage{tikz}
+\usepackage[dvipsnames]{xcolor}
+\usetikzlibrary{calc}
+
+
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+
+\usepackage{longtable}
+\usepackage{booktabs}
+
+% Useful packages
+\usepackage{hyperref}
+\usepackage{amsmath, amssymb}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{tocloft}
+\usepackage{titlesec}
+
+
+\usepackage{unicode-math}
+
+
+
+% Code highlighting (Pandoc uses listings or minted, but listings is safer without shell escape)
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  backgroundcolor=\color[gray]{0.95}
+}
+
+\usepackage{setspace}
+
+
+%Modifiable Commands; defaults set to none
+\newcommand{\titleDOC}{}
+\newcommand{\authorDOC}{Daniel Sabalakov}
+\newcommand{\dateDOC}{\today}
+\newcommand{\classDOC}{}
+\newcommand{\emailDOC}{danielsabalakov@gmail.com}
+% DEFAULT QUOTE IS BY ISSAC NEWTON. IF YOU DON'T WANT IT, DO: quote: @none
+\newcommand{\quoteDOC}{``\textit{Truth is ever to be found in the simplicity, and not in the multiplicity and confusion of things}'' - Issac Newton}
+
+% Header/Footer
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\lhead{\leftmark}
+
+
+
+
+
+% %Title Arguments
+% \title{\TITLEOFDOCUMENT}
+% \author{\AUTHOROFDOCUMENT}
+% \date{\today}
+
+
+%
+% ANYTHING BELOW HERE CAN GET PROCEDURALLY GENERATED
+%
+% BEGINNING OF DOCUMENT
+%
+%
+%
+\begin{document}
+
+%titlepage
+
+
+
+
+
+
+
+
+\renewcommand{\authorDOC}{Daniel Sabalakov}
+
+\renewcommand{\classDOC}{DE Intro to Biotechnology I}
+
+\renewcommand{\titleDOC}{CRISPR Documentary}
+
+\input{latex_templates/basetitle.tex}
+
+\section*{Questions}\label{questions}
+\addcontentsline{toc}{section}{Questions}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  In your own words, what is CRISPR and how does it work?
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  CRISPR is simply palindromic repeats that are segmented in bacteria DNA. However, a specific protein found in bacteria, CAS-9, can be used to find specific codons of DNA and "cut" it. Then, using a different template RNA sequence, the "cut" DNA can be replaced with desired other DNA templates.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Should there be limits on how CRISPR should be used?
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Yes, there should be limits on how CRISPR should be used. CRISPR should not be used as simple devices to make "designer babies;" rather, it should be used only in life threatening conditions. Until further studies are conducted on the limits on CRISPR and how it will affect future generations, CRISPR should not be used to make edits because it could potentially create life-threatening situations for our descendants.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  How might CRISPR technology widen or reduce social inequalities?
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  CRISPR will definitely widen social inequalities. This is because the ability to change genome will make it so that only people who can afford to have their child\textquotesingle s DNA edited will have their child\textquotesingle s DNA edited. This way, it will be inevitable that parents who are more affluent and who have more money will have essentially flawless children, while people who have less money will still leave genetics up to chance, potentially subjecting their child to more dangerous living situations.
+\end{itemize}
+
+
+
+\end{document}
