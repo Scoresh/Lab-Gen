@@ -1,0 +1,313 @@
+\documentclass[letterpaper]{article}
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{graphicx} % Required for inserting images
+
+
+\def\tightlist{}
+
+
+\graphicspath{ {../images/} }
+\usepackage[margin=1in]{geometry}
+\usepackage{tikz}
+\usepackage[dvipsnames]{xcolor}
+\usetikzlibrary{calc}
+
+
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+
+\usepackage{longtable}
+\usepackage{booktabs}
+
+% Useful packages
+\usepackage{hyperref}
+\usepackage{amsmath, amssymb}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{tocloft}
+\usepackage{titlesec}
+
+
+\usepackage{unicode-math}
+
+
+
+% Code highlighting (Pandoc uses listings or minted, but listings is safer without shell escape)
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  backgroundcolor=\color[gray]{0.95}
+}
+
+\usepackage{setspace}
+
+
+%Modifiable Commands; defaults set to none
+\newcommand{\titleDOC}{}
+\newcommand{\authorDOC}{Daniel Sabalakov}
+\newcommand{\dateDOC}{\today}
+\newcommand{\classDOC}{}
+\newcommand{\emailDOC}{danielsabalakov@gmail.com}
+% DEFAULT QUOTE IS BY ISSAC NEWTON. IF YOU DON'T WANT IT, DO: quote: @none
+\newcommand{\quoteDOC}{``\textit{Truth is ever to be found in the simplicity, and not in the multiplicity and confusion of things}'' - Issac Newton}
+
+% Header/Footer
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\lhead{\leftmark}
+
+
+
+
+
+% %Title Arguments
+% \title{\TITLEOFDOCUMENT}
+% \author{\AUTHOROFDOCUMENT}
+% \date{\today}
+
+
+%
+% ANYTHING BELOW HERE CAN GET PROCEDURALLY GENERATED
+%
+% BEGINNING OF DOCUMENT
+%
+%
+%
+\begin{document}
+
+%titlepage
+
+
+
+
+
+
+
+
+\renewcommand{\titleDOC}{Osmosis Unknowns Lab}
+
+\renewcommand{\classDOC}{DE Intro to Biology I}
+
+\renewcommand{\dateDOC}{10/23/2025}
+
+\renewcommand{\authorDOC}{Daniel Sabalakov, Turner Leduc, Jiles Tracz}
+
+\input{latex_templates/basetitle.tex}
+
+ \begin{doublespace} 
+
+\section*{Osmosis Unknowns Lab}\label{osmosis-unknowns-lab}
+\addcontentsline{toc}{section}{Osmosis Unknowns Lab}
+
+\subsection*{Introdcution}\label{introdcution}
+\addcontentsline{toc}{subsection}{Introdcution}
+
+A laboratory assistant prepared solutions of 1.0M, .8M, .6M, .4M, .2M sucrose, and distilled water but forgot to label them! After realizing this error, he randomly labeled them flask A, B, C, D, E and F.
+Design and conduct an experiment, based on the principles of diffusion and osmosis that the assistant could use to determine which of the flasks contain each of the five unknown solutions. You may use only 50 ml of each solution, one potato , a balance and one 24 period to conduct the experiment. You may not taste or touch the solution! Remember potatoes are rich in starches which are large carbohydrate polymers.
+
+\subsubsection*{Hypothesis}\label{hypothesis}
+\addcontentsline{toc}{subsubsection}{Hypothesis}
+
+If potato cores are placed in higher molarity solutions, they will decrease in mass because water will exit the cells of the potato into the solution.
+
+\subsubsection*{Experimental Setup}\label{experimental-setup}
+\addcontentsline{toc}{subsubsection}{Experimental Setup}
+
+Materials:
+
+\begin{itemize}
+\tightlist
+\item
+  6 Potato cores (approximately 3.5 grams each)
+\item
+  6 solutions of varying molarity
+\item
+  Knife
+\item
+  Potato core cutter
+\item
+  One pocket weigh scale (Tared in grams)
+\item
+  One plastic tray
+\item
+  5 plastic containers
+\item
+  Black sharpie
+\end{itemize}
+
+Set-Up:
+
+\begin{itemize}
+\tightlist
+\item
+  One large potato core piece was cut out from a full potato. That piece was then cut into 6 smaller pieces, about 3.5 grams each.
+\item
+  The 6 plastic containers were gathered and labeled A-F.
+\item
+  The different molarity solutions were gathered and 50mL of each solution was poured into the respective labeled containers.
+\end{itemize}
+
+Experiment:
+
+\begin{itemize}
+\tightlist
+\item
+  Each potato core was placed into one of the containers with the specific molar solution. They were then left at room temp hours for 24 hours for osmosis to occur.
+\item
+  After 24 hours, the potato cores were taken out of the containers and new weight measurements were taken for each one.
+\item
+  Weight measurements of the potato cores were compared before and after the osmosis, and through this examination the solutions were ordered from least molarity to highest.
+\end{itemize}
+
+\subsection*{Results}\label{results}
+\addcontentsline{toc}{subsection}{Results}
+
+\subsubsection*{Table (Before)}\label{table-before}
+\addcontentsline{toc}{subsubsection}{Table (Before)}
+
+\begin{longtable}[]{@{}ccc@{}}
+\toprule\noalign{}
+Letter & Mass & Color \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+A & 3.86g & Blue \\
+B & 3.19g & Red \\
+C & 3.33g & Green \\
+D & 3.63g & Yellow \\
+E & 3.68g & Orange \\
+F & 3.58g & Purple \\
+\end{longtable}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  A determination of C (the molar concentration of the potato), solute potential, and water potential. (day 2)
+\end{enumerate}
+
+\subsubsection*{Table (Results)}\label{table-results}
+\addcontentsline{toc}{subsubsection}{Table (Results)}
+
+\begin{longtable}[]{@{}ccc@{}}
+\toprule\noalign{}
+Letter & New Mass & Percent Change and Proportionate Size \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+A & 2.44g & (2.44-3.86)/3.86 =-0.368 \\
+B & 2.10g & (2.10-3.19)/3.19=-0.342 \\
+C & 2.21g & (2.21-3.33)/3.33=-0.336 \\
+D & 2.81g & (2.81-3.63)/3.63=-0.226 \\
+E & 3.74g & (3.74-3.68)/3.68=0.0163 \\
+F & 4.02g & (4.02-3.56)/3.56=0.129 \\
+\end{longtable}
+
+\begin{longtable}[]{@{}lr@{}}
+\toprule\noalign{}
+Letter & Percent Difference (3 sig figs) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+A & 2.44g \\
+B & 2.10g \\
+C & 2.21g \\
+D & 2.81g \\
+E & 3.74g \\
+F & 4.02g \\
+\end{longtable}
+
+ \pagebreak 
+
+\subsubsection*{Graphs!}\label{graphs}
+\addcontentsline{toc}{subsubsection}{Graphs!}
+
+\begin{figure}[htbp]
+	 \centering
+	 \includegraphics[width=0.5\textwidth]{C:/Users/score/Downloads/BIO_Graphs_Molarity/p1.png}
+\end{figure}
+
+\begin{figure}[htbp]
+	 \centering
+	 \includegraphics[width=0.5\textwidth]{C:/Users/score/Downloads/BIO_Graphs_Molarity/p2.png}
+\end{figure}
+
+\begin{figure}[htbp]
+	 \centering
+	 \includegraphics[width=0.5\textwidth]{C:/Users/score/Downloads/BIO_Graphs_Molarity/p3.png}
+\end{figure}
+
+ \pagebreak 
+
+\subsubsection*{Questions}\label{questions}
+\addcontentsline{toc}{subsubsection}{Questions}
+
+\textbf{What is the molarity of sucrose in each of the flasks (day 2)}
+
+\begin{itemize}
+\tightlist
+\item
+  A: 1.0M - (Percent Error leads to overlap)
+\item
+  B: 0.8M - (Percent Error leads to overlap)
+\item
+  C: 0.6M - (Percent Error leads to overlap)
+\item
+  D: 0.4M - D
+\item
+  E: 0.2M - E
+  F: Distilled water - F
+\end{itemize}
+
+\textbf{Determination of C, \(\psi_s, \psi\): }
+
+\begin{longtable}[]{@{}lr@{}}
+\toprule\noalign{}
+Mathematics & Reasoning \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(\psi = \psi_s + \psi_p\) & Base Formula \\
+\(\psi_p\) = 0 & We can assume \(\psi_p\) is \textasciitilde0 \\
+\(\psi = \psi_s\) & Simplification \\
+\(\psi_s = -iCRT\) & Base Formula \\
+i = 1 & Sucrose constant \\
+C = 0.858 & Molarity, X-intercept (GRAPH) \\
+R = 0.0831 & Constant \\
+T = 273 + 22 & Room temp, in Kelvin \\
+\(\psi\) = \(\psi_s = -21\) bars & Substitution \\
+\end{longtable}
+
+\textbf{An explanation of those results based on the principles involved.}
+
+\begin{itemize}
+\item
+  \textbf{Explanation:} The molarity of each solution was found by using the principles of osmosis and weight calculations. Initially, starch-rich potatoes were placed inside 5 solutions varying in sucrose concentration and molarity. Depending on the specific molarity of the solution, the water flow through the potato will vary. For example, if the potato with a 0.4M solute concentration was placed in a solution with a 0.8M solute concentration, the water will flow from the lower solute concentration to the higher concentration (or high water potential to lower water potential), and in this case, out of the potato into the solution. So, when weighing the potato after the process, the core would have lost water weight, making it lighter than it was before. This would tell us that the potato must have been in a hypertonic solution.
+\item
+  \textbf{Conclusion:} In conclusion, The variation in solute potential from the different molar solutions had a significant impact on the influx and transportation of water through the potato, mimicking osmosis in the process. The differing solute concentrations in the mixtures allowed for dictation on how much of the solution got through to the potato, as the potentials changed as the solute potentials changed. In turn, differing solute concentrations resulted in different intakes, proving the theory of water potential and the direction in which osmosis occurs in nature, along with how solute levels can influence the equilibrium in the cell.
+\item
+  \textbf{Sources of Error:}
+\item
+  Saturation Level: Due to the potatoes lacking a dried state prior to the start of the experiment, they may have had a different level of saturation before the input of the molar solutions. Since there was a use of different potatoes during the experiment, different saturation levels were used as a constant in the experiment, skewing the data in the process. Different saturation levels allow for different intakes of the solution, and with this having an influence on the potatoes, variation in the intake (proportionally) occurred.
+\item
+  Potato Skin Presence: Potato skin yields a different makeup in comparison to its underlying side, while also having an impact on the mass of the potato. This means that the skin (if present) not only hinders the potato's surface area, but also its saturation ability. This tampers with data by inputting a variation in a constant subject form, in turn giving different treatments to the potatoes and their saturation abilities, skewing the data found.
+\end{itemize}
+
+ \end{doublespace} 
+
+
+
+\end{document}
