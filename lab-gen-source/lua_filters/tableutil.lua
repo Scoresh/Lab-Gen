@@ -10,13 +10,14 @@ function stripTableFromMacro(tabled)
     end
 end
 
+-- Print a table by sorting through key, value pairs
 function printTable(tabled)
     for key,value in pairs(tabled) do
         print(value)
     end
 end
 
-
+-- Return the functions 
 return {
     stripTableFromMacro=stripTableFromMacro,
     printTable=printTable,

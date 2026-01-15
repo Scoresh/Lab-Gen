@@ -2,14 +2,15 @@ local commandutil = require("lua_filters.commandutil")
 
 
 
-
+-- Preprocess!
 function Pandoc(doc)
+    -- This just parses the document metadata
     local el = doc.meta
     -- doesn't see if it is empty; simply detects if is nil
     if (el == nil) then return doc end
     
     returnTable = {}
-
+    -- These are what we look for. 
     print("\nMeta In File Detected! Running Detectors")
     local lookFor = {
         ["author"] = "RENEWTYPE:authorDOC",
