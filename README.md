@@ -13,11 +13,13 @@ Lab-Gen requires the following packages to be installed and added to PATH
 Metadata can be attached at the top of the file to specify certain commands to set custom commands.
 ### Explanation
 Example of usage is below:
+'''
 \---
 author: Daniel
 date: 9/2
 class: Class
 \---
+'''
 But, fields aren't required.
 
 ### Supported Fields
