@@ -14,11 +14,11 @@ Metadata can be attached at the top of the file to specify certain commands to s
 ### Explanation
 Example of usage is below:
 ```
-\---
+---
 author: Daniel
-date: 9/2
 class: Class
-\---
+quote: Do, or Do not, there is no try
+---
 ```
 But, fields aren't required.
 
