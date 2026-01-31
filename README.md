@@ -38,7 +38,7 @@ The following commands are supported:
 ```
 + @!toc ==> Macro command to generate a table of contents
 + @!raw *LATEX* !@ ==> Macro command to include raw LaTeX code into the markdown. Be sure to use double backslashes for commands.
-+ @!image path=$PATH width=$WIDTH !@ ==> Macro command used to include images into the markdown.
++ @!image path="PATH" width="WIDTH" !@ ==> Macro command used to include images into the markdown.
 ```
 <!-- + @!graph ==> Macro command to generate graphs !TODO: IMPLEMENT -->
 ### Supported Graphs
