@@ -13,11 +13,13 @@ Lab-Gen requires the following packages to be installed and added to PATH
 Metadata can be attached at the top of the file to specify certain commands to set custom commands.
 ### Explanation
 Example of usage is below:
-\---
+```
+---
 author: Daniel
-date: 9/2
 class: Class
-\---
+quote: Do, or Do not, there is no try
+---
+```
 But, fields aren't required.
 
 ### Supported Fields
@@ -33,9 +35,11 @@ Commands can be signified inline via the following syntax:
 @!COMMAND_NAME
 ### Supported Commands
 The following commands are supported:
+```
 + @!toc ==> Macro command to generate a table of contents
 + @!raw *LATEX* !@ ==> Macro command to include raw LaTeX code into the markdown. Be sure to use double backslashes for commands.
-+ @!image path=$PATH width=$WIDTH !@ ==> Macro command used to include images into the markdown.
++ @!image path="PATH" width="WIDTH" !@ ==> Macro command used to include images into the markdown.
+```
 <!-- + @!graph ==> Macro command to generate graphs !TODO: IMPLEMENT -->
 ### Supported Graphs
 Graphs can also be generated using these macro commands. 
@@ -51,6 +55,7 @@ The following flags are supported (and case insentitive)
 ## Generation (Command Line)
 Since Lab-Gen uses Pandoc as its parser, we can run a Pandoc process to directly compile the markdown.
 ### Command Line
+```
 pandoc ^
 <!-- PATH TO LaTeX Template -->
   --template=latex_templates/basetemplate.tex^
@@ -60,6 +65,7 @@ pandoc ^
   --pdf-engine=lualatex^
 <!-- LUA FILTERS RAN. MORE WILL BE ADDED IN THE FUTURE. -->
   --lua-filter=lua_filters/preprocess.lua
+```
 ## Future Plans!
 The following features should be implemented in the feature
 + Python support using tkinter for a workable GUI
@@ -67,3 +73,4 @@ The following features should be implemented in the feature
 + More meta tags, ability to include custom templates
 + More Commands, Graphs
 + Add bar graphs
++ Compile built in R
