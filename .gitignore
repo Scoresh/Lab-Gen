@@ -1,1 +1,9 @@
-projects/
+# Ignore everything inside these folders
+projects/projects_markdown/*
+projects/projects_rendered/*
+projects/projects_debug/*
+
+# But do NOT ignore .gitkeep files
+!projects/projects_markdown/.gitkeep
+!projects/projects_rendered/.gitkeep
+!projects/projects_debug/.gitkeep
