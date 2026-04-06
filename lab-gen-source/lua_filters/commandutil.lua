@@ -24,18 +24,18 @@ local function parseImage(value)
     local returnLatex = ""
     print("Image found! Parsing...")
 
-    fp = value:find("path=")
+    fp = value:find("src=")
     if (fp == nil) then
-        print("PATH is nil. There will be no image rendered.")
+        print("SRC is nil. There will be no image rendered.")
         image_path = "lab-gen-source/images/portsmouth_logo.png"
     else 
-        value = value:sub(fp+6)
+        value = value:sub(fp+5)
         print(value)
         ep = value:find("\"")
         if (ep == nil) then
             print("Missing parenthesis. There will be no image rendered.")
         else 
-            print("You are all set! Parsing Image PATH")
+            print("You are all set! Parsing Image SRC")
             image_path = value:sub(1,ep-1)
             local rest = value:sub(ep+1)
             print("Checking for width...")
