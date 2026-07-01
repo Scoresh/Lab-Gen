@@ -3,6 +3,8 @@ projects/projects_markdown/*
 projects/projects_rendered/*
 projects/projects_debug/*
 
+lab-gen-source/myvars.txt
+
 # But do NOT ignore .gitkeep files
 !projects/projects_markdown/.gitkeep
 !projects/projects_rendered/.gitkeep
