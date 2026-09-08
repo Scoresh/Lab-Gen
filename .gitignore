@@ -9,3 +9,6 @@ lab-gen-source/myvars.txt
 !projects/projects_markdown/.gitkeep
 !projects/projects_rendered/.gitkeep
 !projects/projects_debug/.gitkeep
+
+# REMOVE 'KEY' FILE
+key.loc
