@@ -7,18 +7,23 @@ import java.io.FileWriter;
 
 public class KeyProcessorFile {
 
+    public static void main(){
+        ProcessFile();
+    }
+
     public static String ProcessFile(){
-        File keyFile = new File("../../key.loc");
+        File keyFile = new File("../key.loc");
         if (!keyFile.exists()){
             System.out.println("Key.loc does not exist. Creating blank Key.loc file");
             createSpareKey(keyFile);
         }
         
         // read in key-val pairs:
+        System.out.println(readKeyFile(keyFile));
         return readKeyFile(keyFile);
     }
     public static void createSpareKey(File keyFileLocation) {
-        File spareKey = new File("../storage/sparekey.loc");            
+        File spareKey = new File("storage/sparekey.loc");            
         String st = "";
         try {
             Scanner in = new Scanner(spareKey);
@@ -63,7 +68,7 @@ public class KeyProcessorFile {
     }
 
     public static String extractKeyValPair(String line){
-        String key = line.substring(line.indexOf('#'), line.indexOf(';'));
+        String key = line.substring(line.indexOf('#') + 1, line.indexOf(';'));
         String val = line.substring(line.indexOf(";"));
         return key + " " + val;
     }
