@@ -69,7 +69,10 @@ public class KeyProcessorFile {
 
     public static String extractKeyValPair(String line){
         String key = line.substring(line.indexOf('#') + 1, line.indexOf(';'));
-        String val = line.substring(line.indexOf(";"));
+        String val = "";
+        if (line.indexOf(";")+1 != line.length()){
+            val = line.substring(line.indexOf(";") + 1);
+        }
         return key + " " + val;
     }
 
