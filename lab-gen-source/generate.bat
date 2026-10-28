@@ -16,6 +16,7 @@ EXIT /B %ERRORLEVEL%
   SET "text="
   SET "template="
   SET "file="
+  SET "spell="
   call :parseflags %*
 
   ::important: once flags are parsed, note that we must check that flags exist so we don't have any goofy java error codes. 
@@ -32,6 +33,10 @@ EXIT /B %ERRORLEVEL%
   )
   call :generateTitle "!color!" "!text!"
 
+  ::Run spell check before rendering if the -spell flag was provided.
+  if /I "!spell!" == "1" (
+    call :generateSpell "!file!"
+  )
 
   call :generatePDF "!file!"
 
@@ -55,6 +60,17 @@ EXIT /B 0
   echo "---------------------\\\\--------------------"
   echo "----------------------\\\\-------------------"
   echo "---------------------------------------------"
+EXIT /B 0
+
+
+::-------------------------:
+:: Runs the spell checker on the markdown file before rendering.
+::-------------------------:
+:generateSpell
+  echo Compiling spell checker...
+  javac java_util/KeyStore.java java_util/SpellChecker.java
+  echo Running spell check...
+  java -cp java_util SpellChecker ../projects/projects_markdown/%1.md
 EXIT /B 0
 
 
@@ -126,6 +142,15 @@ IF /I "%~1"=="-h" (
 IF /I "%~1"=="-cj" (
     ECHO Compile flag detected.
     call :compileJava
+    SHIFT
+    GOTO :parseflags
+)
+
+
+:: Check for -spell (Run spell check before rendering)
+IF /I "%~1"=="-spell" (
+    ECHO Spell check flag detected.
+    SET "spell=1"
     SHIFT
     GOTO :parseflags
 )
@@ -207,6 +232,7 @@ EXIT /B 0
 :help 
   echo -color: Set color of default text. Defaults to RED
   echo -jc: Compile Java 
+  echo -spell: Run a spelling/grammar check on the markdown file before rendering
 EXIT /B 0
 ::====================:
 :: Colored Text (CLI)
