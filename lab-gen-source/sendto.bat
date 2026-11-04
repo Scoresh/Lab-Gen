@@ -1,7 +1,11 @@
 @ECHO OFF
 setlocal ENABLEDELAYEDEXPANSION
 
-call myvars.txt
+if exist myvars.txt (
+    call myvars.txt
+) else (
+    echo myvars.txt not found. Copy myvars.example.txt to myvars.txt and set src, or pass -src.
+)
 call :main %*
 
 ::Exit Header
@@ -16,13 +20,19 @@ EXIT /B %ERRORLEVEL%
     call :parseflags %*
     SET "ogsrc=%~dp0"
 
+    ::Without a destination, `cd` would do nothing and mkdir/copy would litter the current directory.
+    if "!src!" == "" (
+        call :warning No destination. Pass -src PATH or set src in myvars.txt. DUMPING.
+        EXIT /B 1
+    )
+
     ::important: once flags are parsed, note that we must check that flags exist
     if "!file!" == "" (
         call :warning The -file flag is missing. DUMPING to avoid accidental creation of directory
         EXIT /B 0
     )
 
-    cd !src!
+    cd /d "!src!"
 
 
     @ECHO OFF

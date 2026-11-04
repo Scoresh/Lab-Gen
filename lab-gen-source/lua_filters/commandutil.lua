@@ -1,140 +1,152 @@
 -- UTILITY FOR COMMANDS
+local dbg = require("lua_filters.debug")
 
-function extractAllCommands(inputTable,stringifiedvalue)
-    print("Beginning an Extraction.")
-    fp = stringifiedvalue:find("@!")
-    if (fp == nil) then 
-        print("Exit ticket found! Exiting...")
-        return inputTable
+local DEFAULT_IMAGE = "lab-gen-source/images/portsmouth_logo.png"
+local DEFAULT_WIDTH = 0.8
+
+-- Collect every "@!...!@" span found in `stringifiedvalue` into `inputTable`.
+-- Returns `inputTable` (it is also filled in place, so existing callers that
+-- ignore the return value keep working).
+local function extractAllCommands(inputTable, stringifiedvalue)
+    dbg.log("Beginning an Extraction.")
+    local init = 1
+    while true do
+        local fp = stringifiedvalue:find("@!", init, true)
+        if fp == nil then
+            dbg.log("Exit ticket found! Exiting...")
+            return inputTable
+        end
+        -- The closing marker must come after the opening one.
+        local ep = stringifiedvalue:find("!@", fp + 2, true)
+        if ep == nil then
+            dbg.warn("A macro starting with '@!' has no closing '!@'. Ignoring the rest of this block.")
+            return inputTable
+        end
+        dbg.log(stringifiedvalue:sub(fp, ep + 1))
+        table.insert(inputTable, stringifiedvalue:sub(fp, ep + 1))
+        init = ep + 2
     end
-    ep = stringifiedvalue:find("!@")
-    if (ep == nil) then
-        -- store into FP; 
-        print("ERROR: NO EXIT TICKET FOUND... PLEASE INSERT A !@... Exiting...")
-        return inputTable
-    else 
-        print(stringifiedvalue:sub(fp,ep+1))
-        table.insert(inputTable,stringifiedvalue:sub(fp,ep+1))
-        extractAllCommands(inputTable,stringifiedvalue:sub(ep+1))
-    end
-end    
+end
 
 
+-- Parse the body of an @!image macro, e.g.
+--     image src="path/to/file.png" width=0.5
+-- `width` may optionally be quoted. Missing/invalid parts fall back to defaults
+-- so a LaTeX figure is always produced.
 local function parseImage(value)
-    local returnLatex = ""
-    print("Image found! Parsing...")
+    dbg.log("Image found! Parsing...")
+    local image_path = DEFAULT_IMAGE
+    local width = DEFAULT_WIDTH
 
-    fp = value:find("src=")
-    if (fp == nil) then
-        print("SRC is nil. There will be no image rendered.")
-        image_path = "lab-gen-source/images/portsmouth_logo.png"
-    else 
-        value = value:sub(fp+5)
-        print(value)
-        ep = value:find("\"")
-        if (ep == nil) then
-            print("Missing parenthesis. There will be no image rendered.")
-        else 
-            print("You are all set! Parsing Image SRC")
-            image_path = value:sub(1,ep-1)
-            local rest = value:sub(ep+1)
-            print("Checking for width...")
-            if (rest:find("width=")) then
-                rest = rest:gsub("width=","")
-                rest = rest:gsub("^%s*(.-)%s*$", "%1")
-
-                width = tonumber(rest)
-                if (width == nil) then
-                    print("Width had an error while converting. Defaulting to 0.8")
-                    width = 0.8
-                end
-            else 
-                print("No width found... Defaulting to 0.8")
-                width = 0.8
-            end
-        end
+    local src = value:match('src%s*=%s*"([^"]*)"')
+    if src == nil then
+        dbg.warn('@!image is missing a quoted src="..." value. Using the default image.')
+    else
+        image_path = src
     end
 
-    -- \begin{figure}[htbp]
--- %     \centering
--- %     \includegraphics[width=0.3\textwidth]{images/labgenpng.png}
--- % \end{figure}
-    returnLatex = returnLatex .. "\\begin{figure}[htbp]\n"
-    returnLatex = returnLatex .. "\t \\centering\n"
-    returnLatex = returnLatex .. "\t \\includegraphics[width=".. width .. "\\textwidth]{" .. image_path ..  "}\n"
-    returnLatex = returnLatex .. "\\end{figure}\n\n"
-    
+    local rawWidth = value:match("width%s*=%s*\"?([%d%.]+)\"?")
+    if rawWidth ~= nil then
+        local parsed = tonumber(rawWidth)
+        if parsed == nil then
+            dbg.warn("Image width '" .. rawWidth .. "' is not a number. Defaulting to " .. DEFAULT_WIDTH)
+        else
+            width = parsed
+        end
+    else
+        dbg.log("No width found... Defaulting to " .. DEFAULT_WIDTH)
+    end
 
+    local latex = "\\begin{figure}[htbp]\n"
+        .. "\t \\centering\n"
+        .. "\t \\includegraphics[width=" .. width .. "\\textwidth]{" .. image_path .. "}\n"
+        .. "\\end{figure}\n\n"
 
-
-    return pandoc.RawBlock("latex",returnLatex)
-
+    return pandoc.RawBlock("latex", latex)
 end
 
 
+-- Command handlers, keyed by the command NAME (the first word of the macro).
+-- Each handler receives the whole macro body (name included).
+local handlers = {
+    -- @!raw \\LaTeX ... !@   -> everything after "raw" is passed through as LaTeX
+    raw = function(body)
+        return pandoc.RawBlock("latex", body:sub(4))
+    end,
+    -- @!image src="..." width=0.5 !@
+    image = parseImage,
+    -- @!toc !@
+    toc = function()
+        return pandoc.RawBlock("latex", "\\tableofcontents")
+    end,
+}
+
+
+-- Turn the body of one macro into a Pandoc block.
+--
+-- Dispatch is on the leading command name, never on a substring anywhere in
+-- the body, so (for example) a `@!raw` block containing `{` or `= ` is always
+-- treated as raw LaTeX. Bodies with no recognised name fall back to:
+--   "name= value" -> \renewcommand{\name}{ value}
+--   body with "{" -> \newpage
+--   anything else -> passed through as raw LaTeX
 local function findCommandBLOCK(value)
-    print(value)
-    local lookFor = {
-        ["raw"] = "RAWTYPE",
-        ["image"] = "IMAGETYPE",
-        ["= "] = "RENEWTYPE",
-        ["{"] = "LISTTYPE",
-        ["toc"] = "\\tableofcontents",
-    }
-    for key,valued in pairs(lookFor) do
-        if (value:find(key) ~= nil) then
-            if (valued:find("RAWTYPE") and value:find(key) == 1) then
-                --begin from raw
-                return pandoc.RawBlock("latex",value:sub(4))
-            elseif (valued:find("IMAGETYPE") and value:find(key) == 1) then
-                return parseImage(value)
-            elseif (valued:find("RENEWTYPE")) then
-                fI,eI = value:find("=")
-                return pandoc.RawBlock("latex","\\renewcommand{\\" .. value:sub(1,eI-1) .. "}{" .. value:sub(eI+1) .. "}")
-            elseif (valued:find("LISTTYPE")) then
-                return pandoc.RawBlock("latex","\\newpage")
-            else
-                return pandoc.RawBlock("latex",valued)
-            end
+    dbg.log(value)
+    local trimmed = value:gsub("^%s+", "")
+    local name = trimmed:match("^(%a+)")
+
+    if name ~= nil and handlers[name] ~= nil then
+        return handlers[name](trimmed)
+    end
+
+    local _, eI = trimmed:find("= ", 1, true)
+    if eI ~= nil then
+        local eq = trimmed:find("=", 1, true)
+        return pandoc.RawBlock("latex",
+            "\\renewcommand{\\" .. trimmed:sub(1, eq - 1) .. "}{" .. trimmed:sub(eq + 1) .. "}")
+    end
+
+    if trimmed:find("{", 1, true) ~= nil then
+        return pandoc.RawBlock("latex", "\\newpage")
+    end
+
+    return pandoc.RawBlock("latex", value)
+end
+
+
+local function insertCommands(pandocCommandTable, inputTable)
+    for _, value in ipairs(inputTable) do
+        table.insert(pandocCommandTable, findCommandBLOCK(value))
+    end
+end
+
+
+-- Build the LaTeX \renewcommand for a metadata field.
+--   commandAction is "RENEWTYPE:<latexName>" or "COMMANDTYPE:<raw latex>".
+local function findCommand(metaString, commandAction)
+    dbg.log("Custom Extract Command Found! Extracting...")
+    local renewPrefix = "RENEWTYPE:"
+    local commandPrefix = "COMMANDTYPE:"
+
+    if commandAction:sub(1, #renewPrefix) == renewPrefix then
+        local name = commandAction:sub(#renewPrefix + 1)
+        dbg.log("Command variable editing: " .. name)
+        if metaString == "none" then
+            return pandoc.RawInline("latex", "\\renewcommand{\\" .. name .. "}{}")
         end
+        return pandoc.RawInline("latex", "\\renewcommand{\\" .. name .. "}{" .. metaString .. "}")
     end
-    return pandoc.RawBlock("latex",value)
-
+    if commandAction:sub(1, #commandPrefix) == commandPrefix then
+        return pandoc.RawInline("latex", commandAction:sub(#commandPrefix + 1))
+    end
+    dbg.warn("Unrecognised metadata command action for value '" .. metaString .. "'")
+    return pandoc.RawInline("latex", "")
 end
 
 
-function insertCommands(pandocCommandTable,inputTable) 
-    for key,value in pairs(inputTable) do
-        table.insert(pandocCommandTable, findCommandBLOCK(value) )
-    end
-end
-
-
-
-function findCommand(metaString,commandAction)
-    print("Custom Extract Command Found! Extracting...")
-    if commandAction:find("RENEWTYPE:") then
-        local firstIndex,lastIndex = string.find(commandAction,"RENEWTYPE:")
-        commandAction = string.sub(commandAction,lastIndex+1)
-        print("Command variable editing: " .. commandAction)
-        if (metaString == "none") then return pandoc.RawInline("latex","\\renewcommand{\\" .. commandAction .. "}{}") end
-        print("\\renewcommand{\\" .. commandAction .. "}{" .. metaString .. "}")
-        return pandoc.RawInline("latex","\\renewcommand{\\" .. commandAction .. "}{" .. metaString .. "}")
-    end
-    if (commandAction:find("COMMANDTYPE:")) then
-        local firstIndex,lastIndex = string.find(commandAction,"COMMANDTYPE:")
-        commandAction = string.sub(commandAction,lastIndex+1)
-        return pandoc.RawInline("latex",commandAction)
-    end
-    print("An error occured while detecting metaString " .. metaString)
-    return pandoc.RawInline("latex","")
-end
-
-
-return{
-    findCommand=findCommand,
-    extractAllCommands=extractAllCommands,
-    insertCommands=insertCommands,
-
-
+return {
+    findCommand = findCommand,
+    findCommandBLOCK = findCommandBLOCK,
+    extractAllCommands = extractAllCommands,
+    insertCommands = insertCommands,
 }

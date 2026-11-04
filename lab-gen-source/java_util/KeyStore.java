@@ -21,8 +21,7 @@ import java.util.Scanner;
  *   #OPENAI_AUTH;sk-...
  * </pre>
  *
- * If {@code key.loc} does not exist it is created from the blank spare template,
- * matching the behavior in {@link KeyProcessorFile}.
+ * If {@code key.loc} does not exist it is created from the blank spare template.
  *
  * This class is intentionally self-contained so it can be compiled and used on its
  * own. It is the single place that knows where personal keys and tool credentials

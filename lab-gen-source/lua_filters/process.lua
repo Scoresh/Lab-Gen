@@ -1,57 +1,43 @@
 local commandutil = require("lua_filters.commandutil")
 local tableutil = require("lua_filters.tableutil")
+local dbg = require("lua_filters.debug")
 
 
+-- Replace any block containing "@!...!@" macros with the LaTeX they expand to.
+-- Blocks without macros are passed through unchanged.
 function Pandoc(el)
-    -- loop through the element blocks and print for now
-    pandocCOMMANDS = {}
+    local pandocCOMMANDS = {}
 
-    -- view pairs
-    for key,value in ipairs(el.blocks) do
-        -- stringify
+    for _, value in ipairs(el.blocks) do
         local stringifiedvalue = pandoc.utils.stringify(value)
-        -- search for super secret delimiters
-        if (stringifiedvalue:find("@!")) then
-            print("A macro command has been found outside of Document Metadata. Parsing...")
-            -- This is the "first" point (@!)
-            fp = stringifiedvalue:find("@!")
-            -- Look for the "last" point (!@)
-            ep = stringifiedvalue:find("!@")
-            -- check for both not nil
-            if (fp == nil or ep == nil) then
-                -- skip 
-                print("One or both of the two is nil. Skipping....")
-            else 
-                -- This is where the quotes is ==> !@   Blah, Blah @!
-                --                                  [^            ^]  
-                fp = fp + 2
-                ep = ep - 1
-                -- Print out the stringified value
-                print(stringifiedvalue:sub(fp,ep))
-                -- find ALL of the commands
-                tempTable = {}
-                -- extract the commands
-                commandutil.extractAllCommands(tempTable,stringifiedvalue)
-                print("PRE AXATION ==> ")
+        if stringifiedvalue:find("@!", 1, true) then
+            dbg.log("A macro command has been found outside of Document Metadata. Parsing...")
+            local fp = stringifiedvalue:find("@!", 1, true)
+            local ep = stringifiedvalue:find("!@", fp + 2, true)
+            if ep == nil then
+                dbg.warn("Found '@!' without a closing '!@'; leaving this block as-is: "
+                    .. stringifiedvalue:sub(1, 60))
+                table.insert(pandocCOMMANDS, value)
+            else
+                local tempTable = commandutil.extractAllCommands({}, stringifiedvalue)
+                dbg.log("PRE AXATION ==> ")
                 tableutil.printTable(tempTable)
-                print("POST AXATION ==> ")
                 tableutil.stripTableFromMacro(tempTable)
+                dbg.log("POST AXATION ==> ")
                 tableutil.printTable(tempTable)
-                -- store into 
-                commandutil.insertCommands(pandocCOMMANDS,tempTable)
+                commandutil.insertCommands(pandocCOMMANDS, tempTable)
             end
-        else 
-            -- just insert the pandocCOMMANDS if nothing is found to keep everything the same.
-            table.insert(pandocCOMMANDS,value)
+        else
+            -- Nothing to expand: keep the block exactly as it was.
+            table.insert(pandocCOMMANDS, value)
         end
     end
-    -- return blocks as LIST of pandocCOMMANDS
+
     el.blocks = pandoc.List(pandocCOMMANDS)
     return el
 end
 
 
-
 return {
-    Pandoc=Pandoc,
+    Pandoc = Pandoc,
 }

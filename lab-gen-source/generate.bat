@@ -17,7 +17,14 @@ EXIT /B %ERRORLEVEL%
   SET "template="
   SET "file="
   SET "spell="
+  SET "helponly="
   call :parseflags %*
+
+  ::-h only prints help; do not render anything.
+  if "!helponly!" == "1" EXIT /B 0
+
+  ::Compiled .class files are not tracked in git, so build ColoredText on first run.
+  if not exist java_util\ColoredText.class call :compileJava
 
   ::important: once flags are parsed, note that we must check that flags exist so we don't have any goofy java error codes. 
   ::No need to give warnings.
@@ -40,7 +47,6 @@ EXIT /B %ERRORLEVEL%
 
   call :generatePDF "!file!"
 
-  call :generateFace
 
   call :generateTEX "!file!"
 EXIT /B 0
@@ -52,15 +58,7 @@ EXIT /B 0
   java -cp java_util ColoredText %1 %2
 EXIT /B 0
 
-:generateFace
-  echo "---------------------------------------------"
-  echo "----------|--------------------|-------------"
-  echo "---------------------------------------------"
-  echo "----------______________________-------------"
-  echo "---------------------\\\\--------------------"
-  echo "----------------------\\\\-------------------"
-  echo "---------------------------------------------"
-EXIT /B 0
+
 
 
 ::-------------------------:
@@ -78,7 +76,6 @@ EXIT /B 0
 :: Compile java 
 ::-------------------------:
 :compileJava
-  @echo on
   echo Compiling Java...
   javac java_util/ColoredText.java
   echo Java compilation finished.
@@ -113,8 +110,12 @@ EXIT /B 0
 EXIT /B 0
 
 :convertDOCXtoMARKDOWN
+  if not exist "../projects/projects_docx/%~1.docx" (
+    call :warning Error: ../projects/projects_docx/%~1.docx was not found. Put the .docx in projects/projects_docx.
+    EXIT /B 1
+  )
   echo Converting from DOCX to MARKDOWN...
-  pandoc ../projects/projects_docx/%1.docx -o ../projects/projects_markdown/%1.md
+  pandoc "../projects/projects_docx/%~1.docx" -o "../projects/projects_markdown/%~1.md"
 EXIT /B 0
 
 
@@ -130,6 +131,7 @@ IF "%~1"=="" GOTO :endOfParseFlagsFunc
 IF /I "%~1"=="-h" (
     ECHO Help flag detected.
     call :help
+    SET "helponly=1"
     GOTO :endOfParseFlagsFunc
 )
 
@@ -142,6 +144,15 @@ IF /I "%~1"=="-h" (
 IF /I "%~1"=="-cj" (
     ECHO Compile flag detected.
     call :compileJava
+    SHIFT
+    GOTO :parseflags
+)
+
+
+:: Check for -debug (verbose Lua filter output; sets LABGEN_DEBUG for pandoc)
+IF /I "%~1"=="-debug" (
+    ECHO Debug flag detected.
+    SET "LABGEN_DEBUG=1"
     SHIFT
     GOTO :parseflags
 )
@@ -230,9 +241,15 @@ EXIT /B 0
 :: Help Flag
 ::====================:
 :help 
-  echo -color: Set color of default text. Defaults to RED
-  echo -jc: Compile Java 
-  echo -spell: Run a spelling/grammar check on the markdown file before rendering
+  echo Usage: generate.bat [flags]   (run from the repository root)
+  echo   -file NAME    Markdown file in projects/projects_markdown, without extension. Default: text
+  echo   -color NAME   Banner color: red, green, yellow, blue, purple, cyan, white, black. Default: red
+  echo   -text TEXT    Banner text. Default: the Lab-Gen logo
+  echo   -cj           Recompile the Java helpers
+  echo   -spell        Run a spelling/grammar check on the markdown file before rendering
+  echo   -docx NAME    Convert projects/projects_docx/NAME.docx to markdown first
+  echo   -debug        Print verbose debug output from the Lua filters
+  echo   -h            Show this help
 EXIT /B 0
 ::====================:
 :: Colored Text (CLI)
@@ -254,5 +271,3 @@ EXIT /B 0
   :endoferrorFunc
   echo.
 EXIT /B 0
-
-PAUSE

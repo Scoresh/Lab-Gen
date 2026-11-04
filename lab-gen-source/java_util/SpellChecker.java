@@ -71,8 +71,15 @@ public class SpellChecker {
     }
 
     /**
+     * Largest chunk of text sent in one request. The free LanguageTool API
+     * rejects requests above 20,000 characters, so longer documents are split.
+     */
+    static final int MAX_CHUNK_CHARS = 15000;
+
+    /**
      * Sends {@code text} to LanguageTool and returns the raw JSON response body.
-     * Returns an empty string if the request fails.
+     * Returns {@code null} if the request fails (so callers can tell a failed
+     * check apart from a clean one).
      */
     public String sendRequest(String text) {
         try {
@@ -97,23 +104,84 @@ public class SpellChecker {
             HttpResponse<String> resp = httpClient.send(req, HttpResponse.BodyHandlers.ofString());
             if (resp.statusCode() / 100 != 2) {
                 System.out.println("Spell check request failed with HTTP status " + resp.statusCode() + ".");
-                return "";
+                return null;
             }
             return resp.body();
         } catch (IOException e) {
-            System.out.println("Network error while contacting the spell check service.");
-            e.printStackTrace();
-            return "";
+            System.out.println("Network error while contacting the spell check service: " + e.getMessage());
+            return null;
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             System.out.println("Spell check request was interrupted.");
-            return "";
+            return null;
         }
     }
 
-    /** Convenience: check text and return the parsed list of issues. */
+    // A response that reports at least one match: "matches":[{ ...
+    private static final Pattern HAS_MATCHES =
+            Pattern.compile("\"matches\"\\s*:\\s*\\[\\s*\\{");
+
+    /**
+     * Checks text and returns the parsed list of issues, or {@code null} if any
+     * request failed. Long text is split into chunks to stay under the API limit.
+     */
     public List<Issue> check(String text) {
-        return parseIssues(sendRequest(text));
+        List<Issue> all = new ArrayList<>();
+        for (String chunk : splitIntoChunks(text, MAX_CHUNK_CHARS)) {
+            if (chunk.isBlank()) {
+                continue;
+            }
+            String body = sendRequest(chunk);
+            if (body == null) {
+                return null;
+            }
+            List<Issue> parsed = parseIssues(body);
+            // Tripwire: the service reported matches but our regex found none,
+            // which means the response format changed. Say so rather than
+            // silently reporting a clean document.
+            if (parsed.isEmpty() && HAS_MATCHES.matcher(body).find()) {
+                System.out.println("Warning: the spell check service returned results in a format "
+                        + "this tool could not parse. Issues may be missing.");
+            }
+            all.addAll(parsed);
+        }
+        return all;
+    }
+
+    /**
+     * Splits {@code text} into pieces no longer than {@code max} characters,
+     * preferring to break between paragraphs, then at whitespace.
+     */
+    static List<String> splitIntoChunks(String text, int max) {
+        List<String> chunks = new ArrayList<>();
+        if (text == null || text.isEmpty()) {
+            return chunks;
+        }
+        StringBuilder current = new StringBuilder();
+        for (String para : text.split("(?<=\\n\\n)")) {
+            while (para.length() > max) {
+                // Break an oversized paragraph at the last whitespace before max.
+                int cut = para.lastIndexOf(' ', max);
+                if (cut <= 0) {
+                    cut = max;
+                }
+                if (current.length() > 0) {
+                    chunks.add(current.toString());
+                    current.setLength(0);
+                }
+                chunks.add(para.substring(0, cut));
+                para = para.substring(cut);
+            }
+            if (current.length() + para.length() > max) {
+                chunks.add(current.toString());
+                current.setLength(0);
+            }
+            current.append(para);
+        }
+        if (current.length() > 0) {
+            chunks.add(current.toString());
+        }
+        return chunks;
     }
 
     /**
@@ -245,12 +313,18 @@ public class SpellChecker {
             text = Files.readString(Path.of(path));
         } catch (IOException e) {
             System.out.println("Could not read file: " + path);
+            System.exit(1);
             return;
         }
 
         SpellChecker checker = new SpellChecker();
         System.out.println("Running spell check on " + path + " ...");
         List<Issue> issues = checker.check(cleanMarkup(text));
+        if (issues == null) {
+            System.out.println("Spell check could not be completed.");
+            System.exit(1);
+            return;
+        }
         checker.display(issues);
     }
 }
